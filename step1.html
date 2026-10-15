@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Goose — Step 1: Calculate Your Monthly Amount</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Disclaimer Banner -->
+    <div class="disclaimer-banner">
+        <span><strong>Educational Initiative:</strong> Golden Goose provides free, unbiased financial education. We do not sell financial products or provide regulated investment advice.</span>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo-group" style="text-decoration: none;">
+                <img src="images/golden-goose-logo.jpeg" alt="Golden Goose Logo" width="48" height="48" style="display: block; object-fit: contain;">
+                <div class="brand-text-block">
+                    <span class="logo-text">Golden Goose</span>
+                    <span class="logo-tagline">Step 1 of 4</span>
+                </div>
+            </a>
+
+            <div style="display: flex; align-items: center; gap: 32px;">
+                <nav class="main-nav-menu">
+                    <a href="about.html" class="nav-link">About Stefan</a>
+                    <a href="faq.html" class="nav-link">FAQ</a>
+                </nav>
+
+                <div class="step-progress-indicator">
+                    <span class="progress-step active">1</span>
+                    <span class="progress-line"></span>
+                    <span class="progress-step">2</span>
+                    <span class="progress-line"></span>
+                    <span class="progress-step">3</span>
+                    <span class="progress-line"></span>
+                    <span class="progress-step">4</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="step-container">
+        <div class="container" style="max-width: 860px;">
+            
+            <!-- Page Title Header -->
+            <div class="step-header text-center" style="margin-bottom: 32px;">
+                <h1 style="font-size: 2.2rem; color: var(--color-navy); font-weight: 800; margin-bottom: 8px;">Choose your monthly investment</h1>
+                <p style="font-size: 1.05rem; color: var(--color-text-muted); max-width: 680px; margin: 0 auto; line-height: 1.5;">
+                    Maybe you're building a nest egg for your child, planning a sabbatical, or securing early retirement. 
+                    Choose an amount you feel comfortable investing every single month.
+                </p>
+            </div>
+
+            <!-- Green Info Banner -->
+            <div class="info-box-lightgreen" style="margin-bottom: 24px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 14px 18px; display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 1.2rem;">🌱</span>
+                <span style="font-size: 0.9rem; color: #166534; font-weight: 600;">
+                    <strong>Nothing is locked in:</strong> You can increase, reduce, pause, stop, or access your money whenever you need to.
+                </span>
+            </div>
+
+            <!-- Interactive Calculator Card -->
+            <div class="calculator-card" style="background: #ffffff; border: 1px solid var(--color-border); border-radius: 18px; padding: 28px; box-shadow: 0 8px 24px rgba(11, 47, 104, 0.04); margin-bottom: 36px;">
+                
+                <!-- Sliders Controls Row avec Boutons Ronds Verts -->
+                <div class="calc-sliders-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 28px;">
+                    
+                    <!-- Slider 1: Monthly Amount -->
+                    <div class="calc-control-group" style="background: #f8fafc; border: 1px solid var(--color-border); border-radius: 14px; padding: 18px;">
+                        <label style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--color-navy); margin-bottom: 12px;">Monthly amount</label>
+                        <div class="calc-value-display-box" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px;">
+                            <button type="button" class="btn-circle-control" id="btn-amount-minus" style="width: 36px; height: 36px; border-radius: 50%; background: #065f46; color: #fff; border: none; font-size: 1.2rem; cursor: pointer;">−</button>
+                            <div class="calc-number-badge" id="display-amount" style="flex: 1; background: #fff; border: 1px solid #cbd5e1; border-radius: 10px; padding: 6px 12px; text-align: center; font-size: 1.3rem; font-weight: 800; color: #0f172a;">€ 100</div>
+                            <button type="button" class="btn-circle-control" id="btn-amount-plus" style="width: 36px; height: 36px; border-radius: 50%; background: #065f46; color: #fff; border: none; font-size: 1.2rem; cursor: pointer;">+</button>
+                        </div>
+                        <input type="range" id="slider-amount" min="10" max="1000" step="10" value="100" style="width: 100%; accent-color: #065f46;">
+                        <span style="display: block; text-align: center; font-size: 0.78rem; color: var(--color-text-muted); margin-top: 8px;">You can change this at any time.</span>
+                    </div>
+
+                    <!-- Slider 2: Time Horizon -->
+                    <div class="calc-control-group" style="background: #f8fafc; border: 1px solid var(--color-border); border-radius: 14px; padding: 18px;">
+                        <label style="display: block; font-size: 0.88rem; font-weight: 700; color: var(--color-navy); margin-bottom: 12px;">Time horizon</label>
+                        <div class="calc-value-display-box" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px;">
+                            <button type="button" class="btn-circle-control" id="btn-years-minus" style="width: 36px; height: 36px; border-radius: 50%; background: #065f46; color: #fff; border: none; font-size: 1.2rem; cursor: pointer;">−</button>
+                            <div class="calc-number-badge" id="display-years" style="flex: 1; background: #fff; border: 1px solid #cbd5e1; border-radius: 10px; padding: 6px 12px; text-align: center; font-size: 1.3rem; font-weight: 800; color: #0f172a;">21 years</div>
+                            <button type="button" class="btn-circle-control" id="btn-years-plus" style="width: 36px; height: 36px; border-radius: 50%; background: #065f46; color: #fff; border: none; font-size: 1.2rem; cursor: pointer;">+</button>
+                        </div>
+                        <input type="range" id="slider-years" min="1" max="40" step="1" value="21" style="width: 100%; accent-color: #065f46;">
+                        <span style="display: block; text-align: center; font-size: 0.78rem; color: var(--color-text-muted); margin-top: 8px;">See what your money could become.</span>
+                    </div>
+
+                </div>
+
+                <!-- Chart & Results Box -->
+                <div class="calc-results-section" style="background: #f8fafc; border: 1px solid var(--color-border); border-radius: 14px; padding: 24px; position: relative;">
+                    
+                    <!-- Chart Legend (Bleu et Gold) -->
+                    <div style="display: flex; justify-content: flex-end; gap: 18px; margin-bottom: 12px; font-size: 0.82rem; font-weight: 600;">
+                        <span style="display: flex; align-items: center; gap: 6px;">
+                            <span style="width: 10px; height: 10px; background: #2563eb; border-radius: 50%;"></span> Your contributions
+                        </span>
+                        <span style="display: flex; align-items: center; gap: 6px;">
+                            <span style="width: 10px; height: 10px; background: #d97706; border-radius: 50%;"></span> Investment growth
+                        </span>
+                    </div>
+
+                    <!-- Main Highlight Projection Text -->
+                    <div style="margin-bottom: 16px;">
+                        <span style="font-size: 0.88rem; color: var(--color-navy); font-weight: 700;" id="calc-headline-summary">€100/month could become approximately</span>
+                        <div style="font-size: 2.2rem; font-weight: 800; color: #166534;" id="display-total-headline">€71,000</div>
+                        <span style="font-size: 0.9rem; font-weight: 700; color: var(--color-navy);" id="display-years-headline">in 21 years</span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--color-text-muted);">(assuming 8% average annual return)</span>
+                    </div>
+
+                    <!-- SVG Chart Container (+50% Hauteur = 330px) -->
+                    <div class="svg-chart-container" style="position: relative; width: 100%; height: 330px; min-height: 330px; margin-top: 15px; margin-bottom: 20px;">
+                        <svg id="compounding-chart" style="width: 100%; height: 330px; display: block; overflow: visible;"></svg>
+                    </div>
+
+                    <!-- Bottom Breakdown Totals Grid -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; background: #ffffff; border: 1px solid var(--color-border); border-radius: 12px; padding: 14px; text-align: center;">
+                        <div>
+                            <span style="display: block; font-size: 0.78rem; color: var(--color-text-muted); font-weight: 600;">Your contributions</span>
+                            <span style="font-size: 1.25rem; font-weight: 800; color: #2563eb;" id="display-total-contributions">€25,200</span>
+                        </div>
+                        <div>
+                            <span style="display: block; font-size: 0.78rem; color: var(--color-text-muted); font-weight: 600;">Growth (free money!)</span>
+                            <span style="font-size: 1.25rem; font-weight: 800; color: #d97706;" id="display-total-growth">€45,800</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Action Button to Step 2 -->
+                <div class="text-center" style="margin-top: 24px;">
+                    <a href="step2.html" class="btn btn-primary btn-large" id="btn-continue-step2" style="width: 100%; max-width: 440px; padding: 14px 24px; font-size: 1.05rem;">
+                        I'll invest €100/month → Continue to Step 2
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Multi-Column Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-col-brand">
+                    <div class="footer-logo-group">
+                        <img src="images/golden-goose-logo.jpeg" alt="Golden Goose" class="footer-logo-img">
+                        <span class="footer-brand-name">Golden Goose</span>
+                    </div>
+                    <p class="footer-brand-desc">
+                        Free, independent, and automated financial education. Empowering individuals to build long-term wealth.
+                    </p>
+                </div>
+
+                <div class="footer-col-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home &amp; Calculator</a></li>
+                        <li><a href="about.html">About Stefan</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="step1.html">Start Guide (Step 1)</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col-links">
+                    <h4>Legal &amp; Compliance</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy (GDPR)</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                        <li><a href="impressum.html">Impressum / Legal Notice</a></li>
+                        <li><a href="disclaimer.html">Financial Disclaimer</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom-divider"></div>
+
+            <div class="footer-legal-notice">
+                <p>
+                    <strong>Financial Disclaimer:</strong> Golden Goose is an educational initiative managed by Stefan Reinders. All content, tools, and calculators provided on this site are for educational and informational purposes only and do not constitute regulated investment, financial, tax, or legal advice. Investing in financial markets, including ETFs, carries risk of capital loss.
+                </p>
+                <p class="footer-copyright">
+                    Golden Goose © 2026. All rights reserved. Created with care for independent financial education.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
