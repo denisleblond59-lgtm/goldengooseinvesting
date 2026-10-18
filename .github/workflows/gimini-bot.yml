@@ -30,7 +30,7 @@ jobs:
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
-          node --input-type=module -e '
+          cat << 'EOF' > update.js
           import { GoogleGenAI } from "@google/genai";
           import fs from "fs";
 
@@ -77,12 +77,13 @@ jobs:
               }
               console.log("Mise à jour appliquée avec succès.");
             } catch (e) {
-              console.error("Erreur d'exécution Gemini :", e);
+              console.error("Erreur execution Gemini :", e);
               process.exit(1);
             }
           }
           run();
-          '
+          EOF
+          node update.js
 
       - name: Commit and Push Changes
         run: |
