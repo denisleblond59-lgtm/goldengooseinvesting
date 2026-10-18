@@ -30,7 +30,7 @@ jobs:
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
-          cat << 'EOF' > update.js
+          cat << 'EOF' > update.mjs
           import { GoogleGenAI } from "@google/genai";
           import fs from "fs";
 
@@ -83,7 +83,7 @@ jobs:
           }
           run();
           EOF
-          node update.js
+          node update.mjs
 
       - name: Commit and Push Changes
         run: |
