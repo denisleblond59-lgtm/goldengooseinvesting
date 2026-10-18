@@ -83,6 +83,12 @@ jobs:
           }
           run();
           EOF
+          if [ -z "$GEMINI_API_KEY" ]; then
+            echo "DIAGNOSTIC: La variable GEMINI_API_KEY est VIDE dans GitHub !"
+            exit 1
+          else
+            echo "DIAGNOSTIC: La clé est bien transmise par GitHub (Longueur: ${#GEMINI_API_KEY} caractères)."
+          fi
           node update.mjs
 
       - name: Commit and Push Changes
