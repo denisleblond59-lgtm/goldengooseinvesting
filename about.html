@@ -26,7 +26,12 @@
                     <span class="logo-tagline">About & Philosophy</span>
                 </div>
             </a>
-            <a href="index.html" class="btn btn-primary">← Back to Home</a>
+            <!-- Sélecteur de langue -->
+<div class="lang-switcher" style="display: inline-flex; gap: 8px; margin-right: 15px; font-weight: 500;">
+  <a href="?lang=en" style="text-decoration: none; color: inherit;">EN</a> |
+  <a href="?lang=cs" style="text-decoration: none; color: inherit;">CS</a> |
+  <a href="?lang=de" style="text-decoration: none; color: inherit;">DE</a>
+</div><a href="index.html" class="btn btn-primary">← Back to Home</a>
         </div>
     </header>
 
@@ -149,3 +154,22 @@
             </div>
         </div>
     </footer>
+    <!-- Script de chargement des langues pour About -->
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const currentLang = urlParams.get('lang') || 'en';
+
+  fetch(`/content/${currentLang}/about.json`)
+    .then(res => res.json())
+    .then(data => {
+      if (data.title) {
+        const title = document.querySelector('h1');
+        if (title) title.innerText = data.title;
+      }
+      if (data.content) {
+        const content = document.querySelector('.about-content') || document.querySelector('main');
+        if (content) content.innerText = data.content;
+      }
+    })
+    .catch(err => console.log('Erreur de chargement de la langue:', err));
+</script>
