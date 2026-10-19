@@ -1704,3 +1704,55 @@ body {
     margin-bottom: 16px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
+/* ==========================================
+   CORRECTIF RESPONSIVE MOBILE & NETTOYAGE
+   ========================================== */
+
+/* 1. Sécurité globale pour conteneurs et images */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: contain;
+}
+
+/* 2. Suppression des doublons de numérotation */
+ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+}
+
+ol li::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* 3. Adaptation spécifique pour écrans mobiles (<= 768px) */
+@media (max-width: 768px) {
+  body {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    overflow-x: hidden;
+  }
+
+  /* Ajustement de la typographie */
+  h1 { font-size: 1.8rem !important; line-height: 1.2 !important; }
+  h2 { font-size: 1.4rem !important; line-height: 1.25 !important; }
+  h3 { font-size: 1.1rem !important; }
+
+  /* Empilement propre des cartes et du calculateur */
+  div[class*="card"],
+  div[class*="grid"],
+  div[class*="container"],
+  .calculator-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
