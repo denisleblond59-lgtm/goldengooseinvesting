@@ -6,11 +6,11 @@ backend:
 media_folder: "assets/images"
 public_folder: "/assets/images"
 
-# Configuration du multilingue (Tchèque par défaut + Allemand)
+# Configuration multilingue : Anglais (par défaut), Tchèque, Allemand
 i18n:
   structure: multiple_folders
-  locales: [cs, de]
-  default_locale: cs
+  locales: [en, cs, de]
+  default_locale: en
 
 collections:
   - name: "pages"
@@ -24,3 +24,4 @@ collections:
           - { label: "Titre principal", name: "title", widget: "string", i18n: true }
           - { label: "Sous-titre", name: "subtitle", widget: "text", i18n: true }
           - { label: "Bouton d'action", name: "cta_text", widget: "string", i18n: true }
+          
