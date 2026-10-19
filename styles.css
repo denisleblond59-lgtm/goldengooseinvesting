@@ -156,8 +156,8 @@ body {
     background-image: 
         linear-gradient(to right, 
             rgba(251, 252, 254, 1) 0%, 
-            rgba(251, 252, 254, 1) 40%, 
-            rgba(251, 252, 254, 0.48) 55%,
+            rgba(251, 252, 254, 1) 30%, 
+            rgba(251, 252, 254, 0.48) 42%,
             rgba(251, 252, 254, 0) 100%
         ), 
         url('images/golden-goose-hero.png') !important;
