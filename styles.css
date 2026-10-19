@@ -1756,3 +1756,62 @@ ol li::before {
     margin-right: 0 !important;
   }
 }
+/* ==========================================
+   CORRECTIF RESPONSIVE FOOTER (MOBILE & PAYSAGE)
+   ========================================== */
+
+/* 1. Recadrage de l'image / logo du footer */
+footer img,
+.footer img,
+.footer-logo,
+footer div:has(> img) {
+  max-width: 120px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  margin-bottom: 1rem !important;
+}
+
+/* 2. Restructuration des colonnes du footer sur mobile (mode vertical) */
+@media (max-width: 768px) {
+  footer,
+  .footer,
+  .footer-content,
+  .footer-grid,
+  .footer-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.5rem !important;
+    padding: 2rem 1.5rem !important;
+    position: relative !important;
+  }
+
+  footer .footer-column,
+  footer .footer-section,
+  footer div {
+    width: 100% !important;
+    max-width: 100% !important;
+    position: static !important; /* Évite que les textes se chevauchent */
+  }
+
+  footer h3, footer h4, footer p, footer a {
+    position: static !important;
+    word-break: break-word !important;
+  }
+}
+
+/* 3. Correctif spécifique pour mobile en mode horizontal (paysage) */
+@media (max-width: 900px) and (max-height: 500px) {
+  footer img,
+  .footer img {
+    max-width: 80px !important;
+  }
+
+  footer,
+  .footer-grid,
+  .footer-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+}
