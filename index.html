@@ -52,145 +52,142 @@
         </div>
     </section>
 
-    <!-- Calculator Box avec Effet de Chevauchement (Overlapping Card) -->
-    <section class="calculator-section overlap-section">
-        <div class="container">
-            <div class="chart-card overlapping-card">
-                
-                <div class="chart-header-block">
-                    <h2>Small steps. A huge difference.</h2>
-                    <p class="chart-description">
-                        This is the power of compounding. Invest €1,000 per year for 18 years, then let it grow. At an average annual return of 9%, it could be worth around <strong style="color: #d97706;">€2.6 million</strong> at age 65.
-                    </p>
-                </div>
-
-                <!-- Conteneur Gris Intérieur - Pleine Largeur -->
-                <div class="chart-inner-wrapper">
-                    
-                    <!-- En-tête : Légende à gauche & Badge Prix à droite -->
-                    <div class="chart-top-bar">
-                        <!-- Légende à gauche -->
-                        <div class="chart-legend-block">
-                            <div class="legend-item">
-                                <span class="dot" style="background: #2563eb;"></span> Your contributions
-                            </div>
-                            <div class="legend-item">
-                                <span class="dot" style="background: #d97706;"></span> Investment growth
-                            </div>
-                        </div>
-
-                        <!-- Badge Prix en haut à droite -->
-                        <div class="chart-value-badge">
-                            ~ €2,600,000<br><small style="font-weight: 400; font-size: 0.8rem;">at age 65</small>
-                        </div>
-                    </div>
-
-                    <!-- Annotation Manuscrite bien placée au centre -->
-                    <div class="handwritten-note-annotation">
-                        <span>- Time turns<br>small investments<br>into big opportunities.</span>
-                        <svg class="handwritten-arrow-svg" viewBox="0 0 50 40" fill="none" stroke="#0b2f68" stroke-width="2" stroke-linecap="round">
-                            <path d="M 5,5 Q 30,5 38,25" />
-                            <path d="M 28,20 L 38,25 L 38,12" />
-                        </svg>
-                    </div>
-
-                    <!-- SVG Graphique VRAIMENT Géant -->
-                    <div class="svg-chart-container">
-                        <svg id="compounding-chart" viewBox="0 0 1000 360" preserveAspectRatio="none">
-                            
-                            <!-- 1. Courbe Dorée (Growth) -->
-                            <path d="M 30,310 C 350,308 680,240 900,30 L 900,310 Z" fill="#d97706" opacity="0.88" />
-
-                            <!-- 2. Courbe Bleue (Contributions) -->
-                            <path d="M 30,310 C 350,309 680,295 900,275 L 900,310 Z" fill="#2563eb" opacity="0.9" />
-
-                            <!-- 3. Ligne d'axe X au bas -->
-                            <line x1="30" y1="310" x2="900" y2="310" stroke="#cbd5e1" stroke-width="1" />
-
-                            <!-- 4. Point sommet (Dot) -->
-                            <circle cx="900" cy="30" r="6" fill="#b45309" />
-
-                            <!-- 5. Libellés Axe X (Âges) -->
-                            <text x="30" y="340" font-size="13" fill="#64748b" font-family="sans-serif">Age</text>
-                            <text x="200" y="340" font-size="13" fill="#64748b" font-family="sans-serif" text-anchor="middle">20</text>
-                            <text x="370" y="340" font-size="13" fill="#64748b" font-family="sans-serif" text-anchor="middle">30</text>
-                            <text x="540" y="340" font-size="13" fill="#64748b" font-family="sans-serif" text-anchor="middle">40</text>
-                            <text x="700" y="340" font-size="13" fill="#64748b" font-family="sans-serif" text-anchor="middle">50</text>
-                            <text x="820" y="340" font-size="13" fill="#64748b" font-family="sans-serif" text-anchor="middle">60</text>
-                            <text x="900" y="340" font-size="13" fill="#64748b" font-family="sans-serif" text-anchor="end">65</text>
-
-                            <!-- 6. Libellés Axe Y (Montants positionnés à DROITE) -->
-                            <text x="915" y="314" font-size="12" fill="#64748b" font-family="sans-serif">€0</text>
-                            <text x="915" y="220" font-size="12" fill="#64748b" font-family="sans-serif">€800k</text>
-                            <text x="915" y="125" font-size="12" fill="#64748b" font-family="sans-serif">€1.7M</text>
-                            <text x="915" y="34" font-size="12" fill="#64748b" font-family="sans-serif">€2.6M</text>
-                        </svg>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Section: Your path to becoming an investor -->
-    <section class="path-section">
-        <div class="container path-container">
+   <!-- Calculator Box avec Effet de Chevauchement (Overlapping Card) -->
+<section class="calculator-section overlap-section">
+    <div class="container">
+        <div class="chart-card overlapping-card">
             
-            <!-- Titre avec Annotation "That's it!" -->
-            <div class="path-header">
-                <h2 class="path-title">Your path to becoming an investor</h2>
+            <div class="chart-header-block" style="margin-bottom: 24px;">
+                <h2 style="font-size: 2.2rem; color: #0b2f68; font-weight: 800; margin-bottom: 8px;">Small steps. A huge difference.</h2>
+                <p class="chart-description" style="font-size: 1.05rem; color: #64748b; max-width: 720px; line-height: 1.5;">
+                    This is the power of compounding. Invest €1,000 per year for 18 years, then let it grow. At an average annual return of 9%, it could be worth around <strong style="color: #d97706;">€2.6 million</strong> at age 65.
+                </p>
+            </div>
+
+            <!-- Conteneur Gris Intérieur - Pleine Largeur -->
+            <div class="chart-inner-wrapper" style="position: relative; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 28px 28px 16px 28px; width: 100%; box-sizing: border-box;">
                 
-                <!-- Note manuscrite et flèche -->
-                <div class="path-note">
-                    <span>That's it!</span>
-                    <svg viewBox="0 0 40 40" fill="none" stroke="#0b2f68" stroke-width="2" stroke-linecap="round" class="path-note-arrow">
-                        <path d="M 5,5 Q 30,5 25,30" />
-                        <path d="M 18,24 L 25,30 L 28,20" />
+                <!-- En-tête : Légende à gauche & Badge Prix à droite -->
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                    <!-- Légende à gauche -->
+                    <div class="chart-legend-block" style="display: flex; gap: 20px; font-size: 0.9rem; font-weight: 600;">
+                        <div class="legend-item" style="display: flex; align-items: center; gap: 8px;">
+                            <span class="dot" style="width: 12px; height: 12px; background: #2563eb; border-radius: 50%;"></span> Your contributions
+                        </div>
+                        <div class="legend-item" style="display: flex; align-items: center; gap: 8px;">
+                            <span class="dot" style="width: 12px; height: 12px; background: #d97706; border-radius: 50%;"></span> Investment growth
+                        </div>
+                    </div>
+
+                    <!-- Badge Prix en haut à droite -->
+                    <div class="chart-value-badge" style="background: #0b2f68; color: #fff; padding: 8px 18px; border-radius: 10px; font-weight: 700; text-align: center; box-shadow: 0 4px 12px rgba(11,47,104,0.18);">
+                        ~ €2,600,000<br><small style="font-weight: 400; font-size: 0.8rem;">at age 65</small>
+                    </div>
+                </div>
+
+                <!-- Annotation Manuscrite bien placée au centre -->
+                <div class="handwritten-note-annotation" style="position: absolute; top: 100px; left: 38%; font-family: 'Caveat', cursive; color: #0b2f68; font-size: 1.35rem; line-height: 1.2; z-index: 3;">
+                    <span>- Time turns<br>small investments<br>into big opportunities.</span>
+                    <svg class="handwritten-arrow-svg" viewBox="0 0 50 40" fill="none" stroke="#0b2f68" stroke-width="2" stroke-linecap="round" style="width: 48px; height: 36px; margin-top: 4px;">
+                        <path d="M 5,5 Q 30,5 38,25" />
+                        <path d="M 28,20 L 38,25 L 38,12" />
                     </svg>
                 </div>
+
+                <!-- SVG Graphique VRAIMENT Géant -->
+                <div class="svg-chart-container" style="position: relative; width: 100%; height: 360px;">
+                    <svg id="compounding-chart" viewBox="0 0 1000 360" preserveAspectRatio="none" style="width: 100%; height: 100%; display: block; overflow: visible;">
+                        
+                        <!-- 1. Courbe Dorée (Growth) -->
+                        <path d="M 30,310 C 350,308 680,240 900,30 L 900,310 Z" fill="#d97706" opacity="0.88" />
+
+                        <!-- 2. Courbe Bleue (Contributions) -->
+                        <path d="M 30,310 C 350,309 680,295 900,275 L 900,310 Z" fill="#2563eb" opacity="0.9" />
+
+                        <!-- 3. Ligne d'axe X au bas -->
+                        <line x1="30" y1="310" x2="900" y2="310" stroke="#cbd5e1" stroke-width="1" />
+
+                        <!-- 4. Point sommet (Dot) -->
+                        <circle cx="900" cy="30" r="6" fill="#b45309" />
+
+                        <!-- 5. Libellés Axe X (Âges) -->
+                        <text x="30" y="340" font-size="13" fill="#64748b" font-family="sans-serif">Age</text>
+                        <text x="200" y="340" font-size="13" fill="#64748b" font-family="sans-serif" text-anchor="middle">20</text>
+                        <text x="370" y="340" font-size="13" fill="#64748b" font-family="sans-serif" text-anchor="middle">30</text>
+                        <text x="540" y="340" font-size="13" fill="#64748b" font-family="sans-serif" text-anchor="middle">40</text>
+                        <text x="700" y="340" font-size="13" fill="#64748b" font-family="sans-serif" text-anchor="middle">50</text>
+                        <text x="820" y="340" font-size="13" fill="#64748b" font-family="sans-serif" text-anchor="middle">60</text>
+                        <text x="900" y="340" font-size="13" fill="#64748b" font-family="sans-serif" text-anchor="end">65</text>
+
+                        <!-- 6. Libellés Axe Y (Montants positionnés à DROITE) -->
+                        <text x="915" y="314" font-size="12" fill="#64748b" font-family="sans-serif">€0</text>
+                        <text x="915" y="220" font-size="12" fill="#64748b" font-family="sans-serif">€800k</text>
+                        <text x="915" y="125" font-size="12" fill="#64748b" font-family="sans-serif">€1.7M</text>
+                        <text x="915" y="34" font-size="12" fill="#64748b" font-family="sans-serif">€2.6M</text>
+                    </svg>
+                </div>
+
             </div>
 
-            <!-- Timeline 4 Étapes -->
-            <div class="path-timeline-grid">
-                
-                <!-- Ligne de connexion horizontale en arrière-plan -->
-                <div class="path-timeline-line"></div>
-
-                <!-- Étape 1 -->
-                <div class="path-step-card">
-                    <div class="path-step-badge">1</div>
-                    <h3 class="path-step-title">Decide</h3>
-                    <p class="path-step-desc">how much you can save monthly.</p>
-                </div>
-
-                <!-- Étape 2 -->
-                <div class="path-step-card">
-                    <div class="path-step-badge">2</div>
-                    <h3 class="path-step-title">Open</h3>
-                    <p class="path-step-desc">your free investment account.<br><small>We'll guide you through setting it up with Revolut.</small></p>
-                </div>
-
-                <!-- Étape 3 -->
-                <div class="path-step-card">
-                    <div class="path-step-badge">3</div>
-                    <h3 class="path-step-title">Set up</h3>
-                    <p class="path-step-desc">your automatic monthly investment with one diversified ETF.<br><small class="path-step-muted">(Vanguard S&P 500 UCITS ETF – VUAA)</small></p>
-                </div>
-
-                <!-- Étape 4 -->
-                <div class="path-step-card">
-                    <div class="path-step-badge">4</div>
-                    <h3 class="path-step-title">Leave it alone</h3>
-                    <p class="path-step-desc mb-2">and let time work its magic.</p>
-                    <p class="path-step-subdesc">You're always in control – adjust, pause, stop or access your money anytime.</p>
-                </div>
-
+        </div>
+    </div>
+<!-- Section: Your path to becoming an investor -->
+<section style="margin: 60px 0; padding: 0 20px;">
+    <div class="container" style="max-width: 960px; margin: 0 auto; position: relative;">
+        
+        <!-- Titre avec Annotation "That's it!" -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; position: relative;">
+            <h2 style="font-size: 2.2rem; color: #0b2f68; font-weight: 800; margin: 0;">Your path to becoming an investor</h2>
+            
+            <!-- Note manuscrite et flèche -->
+            <div style="position: relative; right: 20px; font-family: 'Caveat', cursive; color: #0b2f68; font-size: 1.4rem; font-weight: 700; text-align: center;">
+                <span>That's it!</span>
+                <svg viewBox="0 0 40 40" fill="none" stroke="#0b2f68" stroke-width="2" stroke-linecap="round" style="width: 32px; height: 32px; position: absolute; top: 10px; right: -30px;">
+                    <path d="M 5,5 Q 30,5 25,30" />
+                    <path d="M 18,24 L 25,30 L 28,20" />
+                </svg>
             </div>
         </div>
-    </section>
 
-    <!-- Section Bénéfices -->
+        <!-- Timeline 4 Étapes avec Ligne Grise Traversante -->
+        <div style="position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center;">
+            
+            <!-- Ligne de connexion horizontale en arrière-plan -->
+            <div style="position: absolute; top: 32px; left: 12%; right: 12%; height: 2px; background: #cbd5e1; z-index: 1;"></div>
+
+            <!-- Étape 1 -->
+            <div style="position: relative; z-index: 2; padding: 0 10px;">
+                <div style="width: 64px; height: 64px; background: #dcfce7; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; font-size: 1.8rem; font-weight: 800; color: #0f172a;">1</div>
+                <h3 style="font-size: 1.15rem; color: #0b2f68; font-weight: 800; margin-bottom: 6px;">Decide</h3>
+                <p style="font-size: 0.88rem; color: #64748b; line-height: 1.4; margin: 0;">how much you can save monthly.</p>
+            </div>
+
+            <!-- Étape 2 -->
+            <div style="position: relative; z-index: 2; padding: 0 10px;">
+                <div style="width: 64px; height: 64px; background: #dcfce7; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; font-size: 1.8rem; font-weight: 800; color: #0f172a;">2</div>
+                <h3 style="font-size: 1.15rem; color: #0b2f68; font-weight: 800; margin-bottom: 6px;">Open</h3>
+                <p style="font-size: 0.88rem; color: #64748b; line-height: 1.4; margin: 0;">your free investment account.<br><small style="color: #64748b; font-size: 0.82rem;">We'll guide you through setting it up with Revolut.</small></p>
+            </div>
+
+            <!-- Étape 3 -->
+            <div style="position: relative; z-index: 2; padding: 0 10px;">
+                <div style="width: 64px; height: 64px; background: #dcfce7; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; font-size: 1.8rem; font-weight: 800; color: #0f172a;">3</div>
+                <h3 style="font-size: 1.15rem; color: #0b2f68; font-weight: 800; margin-bottom: 6px;">Set up</h3>
+                <p style="font-size: 0.88rem; color: #64748b; line-height: 1.4; margin: 0;">your automatic monthly investment with one diversified ETF.<br><small style="color: #94a3b8; font-size: 0.78rem;">(Vanguard S&P 500 UCITS ETF – VUAA)</small></p>
+            </div>
+
+            <!-- Étape 4 -->
+            <div style="position: relative; z-index: 2; padding: 0 10px;">
+                <div style="width: 64px; height: 64px; background: #dcfce7; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; font-size: 1.8rem; font-weight: 800; color: #0f172a;">4</div>
+                <h3 style="font-size: 1.15rem; color: #0b2f68; font-weight: 800; margin-bottom: 6px;">Leave it alone</h3>
+                <p style="font-size: 0.88rem; color: #64748b; line-height: 1.4; margin: 0; margin-bottom: 8px;">and let time work its magic.</p>
+                <p style="font-size: 0.8rem; color: #64748b; line-height: 1.3; margin: 0;">You're always in control – adjust, pause, stop or access your money anytime.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+    <!-- Section Bénéfices exacte de Stefan -->
     <section class="benefits-section">
         <div class="container">
             <div class="section-header text-center">
@@ -274,5 +271,3 @@
             </div>
         </div>
     </footer>
-</body>
-</html>
