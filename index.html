@@ -276,3 +276,25 @@
             </div>
         </div>
     </footer>
+    <!-- Script de chargement des langues -->
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const currentLang = urlParams.get('lang') || 'en';
+
+  fetch(`/content/${currentLang}/home.json`)
+    .then(res => res.json())
+    .then(data => {
+      if (data.title) {
+        const title = document.querySelector('.hero-title');
+        if (title) title.innerText = data.title;
+      }
+      if (data.subtitle) {
+        const subtitle = document.querySelector('.hero-subtitle');
+        if (subtitle) subtitle.innerText = data.subtitle;
+      }
+      if (data.cta_text) {
+        document.querySelectorAll('.btn-primary').forEach(btn => btn.innerText = data.cta_text);
+      }
+    })
+    .catch(err => console.log('Erreur de chargement de la langue:', err));
+</script>
