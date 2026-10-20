@@ -1721,25 +1721,41 @@ body {
     .hero-title, h1 { font-size: 1.8rem !important; line-height: 1.2 !important; }
     .section-header h2, h2 { font-size: 1.4rem !important; line-height: 1.25 !important; }
 
-    /* 2. Force l'empilement vertical des 4 étapes (Empêche le débordement à droite) */
+    /* 2. Force l'empilement vertical complet de la grille des 4 étapes */
     .steps-grid,
     .benefits-grid,
     .footer-grid,
     .chart-layout-grid,
-    div[class*="steps"] {
+    [class*="steps"],
+    [class*="path"],
+    [class*="process"] {
         display: flex !important;
         flex-direction: column !important;
         grid-template-columns: 1fr !important;
         gap: 20px !important;
         width: 100% !important;
         max-width: 100% !important;
+        overflow: visible !important;
     }
 
+    /* Réinitialise la largeur de chaque carte pour éviter tout débordement à droite */
     .step-card,
-    .steps-grid > div {
+    [class*="step-card"],
+    [class*="step-item"],
+    [class*="step-col"],
+    .steps-grid > div,
+    [class*="steps"] > div {
         width: 100% !important;
         max-width: 100% !important;
+        min-width: 0 !important;
         box-sizing: border-box !important;
+        flex: 1 1 100% !important;
+    }
+
+    /* Masque les lignes horizontales de liaison entre les puces sur mobile */
+    .progress-line,
+    [class*="line"] {
+        display: none !important;
     }
 
     /* 3. Correctif Proportions Graphique SVG Mobile */
