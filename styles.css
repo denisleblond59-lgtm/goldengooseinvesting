@@ -149,7 +149,7 @@ body {
 /* Hero Section */
 .hero-section {
     position: relative;
-    padding: 70px 0 180px;
+    padding: 70px 0 60px;
     background-color: var(--color-bg-warm);
     
     /* Dégradé fluide + photo */
@@ -212,7 +212,7 @@ body {
 .calculator-section {
     position: relative;
     z-index: 10;
-    margin-top: -30px;
+    margin-top: -20px;
     padding-bottom: 60px;
 }
 
