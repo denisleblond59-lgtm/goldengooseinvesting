@@ -1721,15 +1721,25 @@ body {
     .hero-title, h1 { font-size: 1.8rem !important; line-height: 1.2 !important; }
     .section-header h2, h2 { font-size: 1.4rem !important; line-height: 1.25 !important; }
 
-    /* 2. Conversion des grilles en colonne unique */
+    /* 2. Force l'empilement vertical des 4 étapes (Empêche le débordement à droite) */
     .steps-grid,
     .benefits-grid,
     .footer-grid,
-    .chart-layout-grid {
-        display: grid !important;
+    .chart-layout-grid,
+    div[class*="steps"] {
+        display: flex !important;
+        flex-direction: column !important;
         grid-template-columns: 1fr !important;
-        gap: 16px !important;
+        gap: 20px !important;
         width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .step-card,
+    .steps-grid > div {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     /* 3. Correctif Proportions Graphique SVG Mobile */
