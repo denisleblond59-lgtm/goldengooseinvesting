@@ -160,10 +160,6 @@ body {
             rgba(251, 252, 254, 0.48) 42%,
             rgba(251, 252, 254, 0) 100%
         ), 
-        linear-gradient(to bottom, 
-            rgba(251, 252, 254, 0) 70%, 
-            rgba(251, 252, 254, 1) 100%
-        ),
         url('images/golden-goose-hero.png') !important;
 
     /* On cale l'image à droite sans qu'elle dépasse une taille raisonnable */
@@ -216,7 +212,7 @@ body {
 .calculator-section {
     position: relative;
     z-index: 10;
-    margin-top: -80px;
+    margin-top: -30px;
     padding-bottom: 60px;
 }
 
