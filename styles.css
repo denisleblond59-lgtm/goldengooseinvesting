@@ -1801,12 +1801,8 @@ body {
     }
 
     .hero-mobile-img {
-        display: block !important;
-        width: 100% !important;
-        height: auto !important;
-        border-radius: 16px !important;
-        margin-top: 20px !important;
-    }
+    display: none !important;
+}
 
     /* 3. Calculateur SVG & Badge bleu */
     .calculator-section .svg-chart-container,
@@ -1859,7 +1855,21 @@ footer div:has(> img) {
 }
 
 /* 2. Restructuration des colonnes du footer sur mobile (mode vertical) */
+.hero-mobile-img {
+    display: none !important;
+}
 @media (max-width: 768px) {
+   .hero-section {
+        background-image: none !important;
+    }
+
+    .hero-mobile-img {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 16px !important;
+        margin-top: 20px !important;
+    }
   footer,
   .footer,
   .footer-content,
