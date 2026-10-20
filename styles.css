@@ -1901,4 +1901,8 @@ footer div:has(> img) {
     flex-direction: column !important;
     gap: 1rem !important;
   }
+   .hero-mobile-img {
+    display: none;
+}
+   
 }
