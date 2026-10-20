@@ -2,6 +2,8 @@ backend:
   name: github
   repo: denisleblond59-lgtm/goldengooseinvesting
   branch: main
+  base_url: https://goldengooseinvesting.vercel.app
+  auth_endpoint: api/auth
 
 media_folder: "assets/images"
 public_folder: "/assets/images"
