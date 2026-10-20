@@ -1,9 +1,6 @@
 backend:
-  name: github
-  repo: denisleblond59-lgtm/goldengooseinvesting
+  name: git-gateway
   branch: main
-  base_url: https://api.netlify.com
-auth_endpoint: auth
 
 media_folder: "assets/images"
 public_folder: "/assets/images"
