@@ -1796,6 +1796,17 @@ body {
     .timeline-line {
         display: none !important;
     }
+   .hero-section {
+        background-image: none !important;
+    }
+
+    .hero-mobile-img {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 16px !important;
+        margin-top: 20px !important;
+    }
 
     /* 3. Calculateur SVG & Badge bleu */
     .calculator-section .svg-chart-container,
