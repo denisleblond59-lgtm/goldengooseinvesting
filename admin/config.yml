@@ -2,7 +2,6 @@ backend:
   name: github
   repo: denisleblond59-lgtm/goldengooseinvesting
   branch: main
-  base_url: https://your-token-proxy-or-local # (laisse cette partie ou utilise le mode token direct)
 
 media_folder: "assets/images"
 public_folder: "/assets/images"
