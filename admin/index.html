@@ -8,5 +8,15 @@
 <body>
   <!-- Inclusion de Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+  // Injection directe du Personal Access Token pour contourner l'authentification OAuth
+  if (!localStorage.getItem('decap-cms-user')) {
+    const user = {
+      token: "TON_TOKEN_ICI",
+      backendName: "github"
+    };
+    localStorage.setItem('decap-cms-user', JSON.stringify(user));
+  }
+</script>
 </body>
 </html>
