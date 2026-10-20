@@ -1706,7 +1706,75 @@ body {
 /* ==========================================
    CORRECTIF RESPONSIVE MOBILE CIBLÉ
    ========================================== */
+/* ==========================================
+   SECTION PATH TO BECOMING AN INVESTOR
+   ========================================== */
 
+.steps-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.handwritten-tag {
+    position: relative;
+    right: 20px;
+    font-family: 'Caveat', cursive;
+    color: #0b2f68;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.steps-timeline {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 32px;
+    left: 12%;
+    right: 12%;
+    height: 2px;
+    background: #cbd5e1;
+    z-index: 1;
+}
+
+.step-item {
+    position: relative;
+    z-index: 2;
+    padding: 0 10px;
+}
+
+@media (max-width: 768px) {
+    .steps-header {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 12px !important;
+        margin-bottom: 24px !important;
+    }
+
+    .handwritten-tag {
+        right: 0 !important;
+        margin-top: 4px !important;
+    }
+
+    .steps-timeline {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+    }
+
+    .timeline-line {
+        display: none !important;
+    }
+}
 @media (max-width: 768px) {
     body {
         overflow-x: hidden;
