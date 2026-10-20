@@ -1721,45 +1721,45 @@ body {
     .hero-title, h1 { font-size: 1.8rem !important; line-height: 1.2 !important; }
     .section-header h2, h2 { font-size: 1.4rem !important; line-height: 1.25 !important; }
 
-    /* 2. Force l'empilement vertical de la frise des 4 étapes (Your path to becoming an investor) */
+    /* 2. Force TOUS les conteneurs de la section d'étapes en colonne unique */
+    .steps-overview-section,
+    .steps-overview-section *,
     .steps-grid,
-    .benefits-grid,
-    .footer-grid,
-    .chart-layout-grid,
-    [class*="step"],
-    [class*="process"],
-    [class*="path"],
-    div:has(> .step-number),
-    div:has(> [class*="step"]) {
-        display: flex !important;
+    .steps-grid *,
+    [class*="steps-overview"] div {
         flex-direction: column !important;
         grid-template-columns: 1fr !important;
-        gap: 24px !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        align-items: center !important;
-        text-align: center !important;
+        min-width: 0 !important;
     }
 
-    /* Annule les contraintes de largeur minimale sur chaque colonne d'étape */
-    .steps-grid > div,
-    [class*="step-item"],
-    [class*="step-col"],
-    [class*="step-card"],
-    div:has(> .step-number) > div {
+    .steps-overview-section div:has(> .step-number),
+    .steps-grid,
+    [class*="steps"] {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 28px !important;
+        width: 100% !important;
+        align-items: center !important;
+    }
+
+    /* Chaque bloc d'étape occupe 100% de la largeur */
+    .steps-overview-section .step-card,
+    .steps-overview-section [class*="step"],
+    .steps-grid > div {
         width: 100% !important;
         max-width: 100% !important;
         min-width: 0 !important;
         box-sizing: border-box !important;
-        flex: 1 1 100% !important;
+        text-align: center !important;
     }
 
-    /* Masque les lignes de liaison horizontales et l'annotation manuscrite gênante */
+    /* Supprime les lignes horizontales de liaison entre les puces */
+    .steps-overview-section div::before,
+    .steps-overview-section div::after,
     .progress-line,
-    [class*="line"],
-    .steps-overview-section [class*="handwritten"],
-    .steps-overview-section svg {
+    [class*="line"] {
         display: none !important;
+        content: none !important;
     }
 
     /* 3. Correctif Proportions Graphique SVG Mobile */
