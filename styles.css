@@ -1753,6 +1753,20 @@ body {
 }
 
 @media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    /* 1. Typographie mobile */
+    .hero-title, h1 { font-size: 1.8rem !important; line-height: 1.2 !important; }
+    .section-header h2, h2 { font-size: 1.4rem !important; line-height: 1.25 !important; }
+
+    /* 2. Section 4 Étapes */
     .steps-header {
         flex-direction: column !important;
         align-items: center !important;
@@ -1767,70 +1781,23 @@ body {
     }
 
     .steps-timeline {
+        display: grid !important;
         grid-template-columns: 1fr !important;
         gap: 32px !important;
+        width: 100% !important;
+    }
+
+    .step-item {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
     }
 
     .timeline-line {
         display: none !important;
     }
-}
-@media (max-width: 768px) {
-    body {
-        overflow-x: hidden;
-    }
 
-    .container {
-        padding-left: 16px !important;
-        padding-right: 16px !important;
-    }
-
-    /* 1. Typographie mobile */
-    .hero-title, h1 { font-size: 1.8rem !important; line-height: 1.2 !important; }
-    .section-header h2, h2 { font-size: 1.4rem !important; line-height: 1.25 !important; }
-
-    /* 2. Force TOUS les conteneurs de la section d'étapes en colonne unique */
-    .steps-overview-section,
-    .steps-overview-section *,
-    .steps-grid,
-    .steps-grid *,
-    [class*="steps-overview"] div {
-        flex-direction: column !important;
-        grid-template-columns: 1fr !important;
-        min-width: 0 !important;
-    }
-
-    .steps-overview-section div:has(> .step-number),
-    .steps-grid,
-    [class*="steps"] {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 28px !important;
-        width: 100% !important;
-        align-items: center !important;
-    }
-
-    /* Chaque bloc d'étape occupe 100% de la largeur */
-    .steps-overview-section .step-card,
-    .steps-overview-section [class*="step"],
-    .steps-grid > div {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        box-sizing: border-box !important;
-        text-align: center !important;
-    }
-
-    /* Supprime les lignes horizontales de liaison entre les puces */
-    .steps-overview-section div::before,
-    .steps-overview-section div::after,
-    .progress-line,
-    [class*="line"] {
-        display: none !important;
-        content: none !important;
-    }
-
-    /* 3. Correctif Proportions Graphique SVG Mobile */
+    /* 3. Calculateur SVG & Badge bleu */
     .calculator-section .svg-chart-container,
     .svg-chart-container {
         height: 220px !important;
@@ -1842,7 +1809,15 @@ body {
         padding: 16px 10px !important;
     }
 
-    /* 4. Maintien et visibilité du bouton CTA bas */
+    .chart-value-badge {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        margin: 0 0 12px 0 !important;
+        display: inline-block !important;
+    }
+
+    /* 4. Boutons CTA */
     div[style*="justify-content: center"] {
         display: flex !important;
         justify-content: center !important;
@@ -1855,15 +1830,6 @@ body {
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
-    }
-
-    /* 5. Repositionnement du badge bleu du graphique sur mobile */
-    .chart-value-badge {
-        position: relative !important;
-        top: auto !important;
-        right: auto !important;
-        margin: 0 0 12px 0 !important;
-        display: inline-block !important;
     }
 }
 /* ==========================================
