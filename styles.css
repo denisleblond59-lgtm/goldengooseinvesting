@@ -156,9 +156,9 @@ body {
     background-image: 
         linear-gradient(to right, 
             rgba(251, 252, 254, 1) 0%, 
-            rgba(251, 252, 254, 1) 45%, 
-            rgba(251, 252, 254, 0.85) 60%,
-            rgba(251, 252, 254, 0) 75%
+            rgba(251, 252, 254, 0.9) 25%, 
+            rgba(251, 252, 254, 0.4) 45%,
+            rgba(251, 252, 254, 0) 65%
         ), 
         url('images/golden-goose-hero.png') !important;
     /* On cale l'image à droite sans qu'elle dépasse une taille raisonnable */
