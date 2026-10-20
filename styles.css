@@ -1732,7 +1732,19 @@ body {
         width: 100% !important;
     }
 
-    /* 3. Maintien et visibilité du bouton CTA bas */
+    /* 3. Correctif Proportions Graphique SVG Mobile */
+    .calculator-section .svg-chart-container,
+    .svg-chart-container {
+        height: 220px !important;
+        margin-top: 10px !important;
+        margin-bottom: 15px !important;
+    }
+
+    .chart-inner-wrapper {
+        padding: 16px 10px !important;
+    }
+
+    /* 4. Maintien et visibilité du bouton CTA bas */
     div[style*="justify-content: center"] {
         display: flex !important;
         justify-content: center !important;
