@@ -163,7 +163,7 @@ body {
         url('images/golden-goose-hero.png') !important;
 
     /* On cale l'image à droite sans qu'elle dépasse une taille raisonnable */
-    background-position: left top, 80% center !important;
+    background-position: left top, 95% center !important;
     background-size: 100% 100%, auto 100% !important; /* 'auto 100%' garde l'image à hauteur fixe */
     background-repeat: no-repeat, no-repeat !important;
     
