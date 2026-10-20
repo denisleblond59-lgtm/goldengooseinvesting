@@ -149,7 +149,7 @@ body {
 /* Hero Section */
 .hero-section {
     position: relative;
-    padding: 70px 0 130px;
+    padding: 70px 0 180px;
     background-color: var(--color-bg-warm);
     
     /* Dégradé fluide + photo */
@@ -221,7 +221,7 @@ body {
     border: 1px solid var(--color-border);
     border-radius: 20px;
     padding: 36px;
-    box-shadow: 0 10px 40px rgba(11, 47, 104, 0.08);
+    box-shadow: 0 20px 40px rgba(11, 47, 104, 0.08);
 }
 
 .chart-header-block h2 {
