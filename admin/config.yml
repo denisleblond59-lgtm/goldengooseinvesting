@@ -1,29 +1,55 @@
 backend:
   name: github
   repo: denisleblond59-lgtm/goldengooseinvesting
-  branch: main
+  branch: main 
   base_url: https://goldengooseinvesting.vercel.app
-  auth_endpoint: api/auth
+  auth_endpoint: /api/auth
 
-media_folder: "assets/images"
-public_folder: "/assets/images"
-
-# Configuration multilingue : Anglais (par défaut), Tchèque, Allemand
-i18n:
-  structure: multiple_folders
-  locales: [en, cs, de]
-  default_locale: en
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
 
 collections:
-  - name: "pages"
-    label: "Pages du site"
+  - name: "faq_en"
+    label: "FAQs (English)"
     files:
-      - file: "content/home.json"
-        label: "Page d'accueil"
-        name: "home"
-        i18n: true
+      - file: "data/faq.en.json" # Path to EN FAQ data file
+        label: "English FAQ Items"
+        name: "faq_en_file"
         fields:
-          - { label: "Titre principal", name: "title", widget: "string", i18n: true }
-          - { label: "Sous-titre", name: "subtitle", widget: "text", i18n: true }
-          - { label: "Bouton d'action", name: "cta_text", widget: "string", i18n: true }
-          
+          - label: "FAQ List"
+            name: "faqs"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "markdown" }
+              - { label: "Category", name: "category", widget: "string", required: false }
+
+  - name: "faq_cs"
+    label: "FAQs (Czech)"
+    files:
+      - file: "cs/data/faq.cs.json" # Path to CS FAQ data file
+        label: "Czech FAQ Items"
+        name: "faq_cs_file"
+        fields:
+          - label: "FAQ List"
+            name: "faqs"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "markdown" }
+              - { label: "Category", name: "category", widget: "string", required: false }
+
+  - name: "faq_de"
+    label: "FAQs (German)"
+    files:
+      - file: "de/data/faq.de.json" # Path to DE FAQ data file
+        label: "German FAQ Items"
+        name: "faq_de_file"
+        fields:
+          - label: "FAQ List"
+            name: "faqs"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "markdown" }
+              - { label: "Category", name: "category", widget: "string", required: false }
