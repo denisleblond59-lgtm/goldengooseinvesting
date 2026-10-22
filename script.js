@@ -234,22 +234,35 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', updateCalculator);
     }
 
-    // Case à cocher Step 3
+    // Case à cocher Step 2 (Revolut)
+    const revolutCheckbox = document.getElementById('revolut-checkbox');
+    const revolutSubmitBtn = document.getElementById('step2-submit-btn');
+
+    if (revolutCheckbox && revolutSubmitBtn) {
+        revolutSubmitBtn.style.opacity = revolutCheckbox.checked ? '1' : '0.85';
+
+        revolutCheckbox.addEventListener('change', (e) => {
+            revolutSubmitBtn.style.opacity = e.target.checked ? '1' : '0.85';
+        });
+
+        revolutSubmitBtn.addEventListener('click', () => {
+            if (revolutCheckbox) revolutCheckbox.checked = true;
+        });
+    }
+
+    // Case à cocher Step 3 (Auto-invest)
     const step3Checkbox = document.getElementById('step3-checkbox');
     const step3SubmitBtn = document.getElementById('step3-submit-btn');
 
     if (step3Checkbox && step3SubmitBtn) {
-        step3SubmitBtn.style.opacity = '0.5';
-        step3SubmitBtn.style.pointerEvents = 'none';
+        step3SubmitBtn.style.opacity = step3Checkbox.checked ? '1' : '0.85';
 
         step3Checkbox.addEventListener('change', (e) => {
-            if (e.target.checked) {
-                step3SubmitBtn.style.opacity = '1';
-                step3SubmitBtn.style.pointerEvents = 'auto';
-            } else {
-                step3SubmitBtn.style.opacity = '0.5';
-                step3SubmitBtn.style.pointerEvents = 'none';
-            }
+            step3SubmitBtn.style.opacity = e.target.checked ? '1' : '0.85';
+        });
+
+        step3SubmitBtn.addEventListener('click', () => {
+            if (step3Checkbox) step3Checkbox.checked = true;
         });
     }
 
