@@ -12,7 +12,7 @@ collections:
   - name: "faq_en"
     label: "FAQs (English)"
     files:
-      - file: "data/faq.en.json" # Path to EN FAQ data file
+      - file: "data/faq-en.json" # Path to EN FAQ data file
         label: "English FAQ Items"
         name: "faq_en_file"
         fields:
@@ -27,7 +27,7 @@ collections:
   - name: "faq_cs"
     label: "FAQs (Czech)"
     files:
-      - file: "cs/data/faq.cs.json" # Path to CS FAQ data file
+      - file: "data/faq-cs.json" # Path to CS FAQ data file
         label: "Czech FAQ Items"
         name: "faq_cs_file"
         fields:
@@ -42,7 +42,7 @@ collections:
   - name: "faq_de"
     label: "FAQs (German)"
     files:
-      - file: "de/data/faq.de.json" # Path to DE FAQ data file
+      - file: "data/faq-de.json" # Path to DE FAQ data file
         label: "German FAQ Items"
         name: "faq_de_file"
         fields:

@@ -1,0 +1,19 @@
+{
+  "faqs": [
+    {
+      "question": "Proč VUAA (Vanguard S&P 500 UCITS ETF)?",
+      "answer": "VUAA kopíruje index S&P 500 a poskytuje okamžité vlastnictví 500 předních amerických společností (včetně Apple, Microsoft, Amazon, Alphabet a Berkshire Hathaway) v jednom jednoduchém fondu. Má mimořádně nízký nákladový poměr pouhých 0,07 % ročně a automaticky reinvestuje dividendy (akumulační fond), což maximalizuje efekt složeného úročení bez nutnosti danit dividendový příjem nebo platit transakční poplatky.",
+      "category": "Investice"
+    },
+    {
+      "question": "Proč je automatické investování do ETF lepší než průměr?",
+      "answer": "Většina individuálních investorů dosahuje horších výsledků než trh, protože se snaží trh časovat nebo vybírat jednotlivé akcie. Automatizací širokého ETF na S&P 500 si zajistíte výnosy celého trhu s minimálními náklady a bez emočního stresu.",
+      "category": "Strategie"
+    },
+    {
+      "question": "Je Revolut bezpečný pro dlouhodobé investování?",
+      "answer": "Ano. Revolut Securities Europe UAB je plně licencovaný a regulovaný subjekt podléhající evropským regulačním rámcům (MiFID II) a litevské centrální bance. Investiční aktiva jsou vedena na oddělených klientských účtech a chráněna v rámci evropského systému pojištění investorů.",
+      "category": "Platforma"
+    }
+  ]
+}

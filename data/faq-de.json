@@ -1,0 +1,19 @@
+{
+  "faqs": [
+    {
+      "question": "Warum VUAA (Vanguard S&P 500 UCITS ETF)?",
+      "answer": "VUAA bildet den S&P 500 Index ab und ermöglicht Ihnen mit einem einzigen Fonds den direkten Besitz an 500 der führenden US-Unternehmen (darunter Apple, Microsoft, Amazon, Alphabet und Berkshire Hathaway). Er zeichnet sich durch eine extrem niedrige Gesamtkostenquote von nur 0,07 % pro Jahr aus und reinvestiert Dividenden automatisch (thesaurierend). Dies maximiert den Zinseszinseffekt, ohne laufende Dividendenausschüttungen versteuern oder zusätzliche Transaktionsgebühren zahlen zu müssen.",
+      "category": "Investition"
+    },
+    {
+      "question": "Warum ist automatisches ETF-Investieren überdurchschnittlich erfolgreich?",
+      "answer": "Die allermeisten Privatanleger schneiden schlechter ab als der Markt, weil sie versuchen, den Markt zu timen oder einzelne Aktien auszuwählen. Durch die Automatisierung eines breit gestreuten S&P 500 ETFs sichern Sie sich die Marktrendite zu minimalen Kosten und völlig ohne emotionalen Stress.",
+      "category": "Strategie"
+    },
+    {
+      "question": "Ist Revolut für langfristiges Investieren sicher?",
+      "answer": "Ja. Revolut Securities Europe UAB ist ein voll lizenziertes und reguliertes Institut unter europäischen Regulierungsstandards (MiFID II) und wird von der litauischen Zentralbank beaufsichtigt. Kundengelder und Wertpapiere werden auf getrennten Sondervermögenskonten verwahrt und sind durch das europäische Anlegerentschädigungssystem geschützt.",
+      "category": "Plattform"
+    }
+  ]
+}
