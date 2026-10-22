@@ -65,16 +65,23 @@ body {
 .logo-group {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
 }
 
-.logo-goose-svg {
-    filter: drop-shadow(0px 2px 4px rgba(217, 119, 6, 0.3));
+.site-header .logo-group img,
+.logo-group img,
+.header-logo-img {
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
     transition: transform 0.2s ease;
 }
 
-.logo-group:hover .logo-goose-svg {
-    transform: scale(1.1) rotate(-5deg);
+.logo-group:hover .header-logo-img,
+.logo-group:hover img {
+    transform: scale(1.05);
 }
 
 .logo-text {
@@ -280,41 +287,42 @@ body {
 }
 
 .chart-value-badge {
-    position: absolute;
-    top: 15px;
-    right: 200px;
-    background: #064e3b;
+    position: relative;
+    background: #0b2f68;
     color: #ffffff;
-    padding: 6px 12px;
-    border-radius: 6px;
+    padding: 8px 18px;
+    border-radius: 10px;
     font-weight: 700;
-    font-size: 0.82rem;
+    font-size: 0.95rem;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(6, 78, 59, 0.2);
+    box-shadow: 0 4px 12px rgba(11, 47, 104, 0.18);
+    line-height: 1.3;
     z-index: 5;
-    line-height: 1.25;
+    white-space: nowrap;
 }
 
 .handwritten-note-annotation {
     position: absolute;
-    top: 55px;
-    right: 330px;
+    top: 110px;
+    left: 42%;
     font-family: var(--font-handwritten);
-    font-size: 1.2rem;
+    font-size: 1.35rem;
     color: var(--color-navy);
-    line-height: 1.15;
-    transform: rotate(-4deg);
+    line-height: 1.2;
+    transform: rotate(-3deg);
     z-index: 5;
+    pointer-events: none;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
 }
 
 .handwritten-arrow-svg {
-    width: 40px;
-    height: 30px;
+    width: 65px;
+    height: 55px;
     margin-top: 2px;
-    margin-right: -25px;
+    margin-left: 20px;
+    display: block;
 }
 
 .svg-chart-container {
@@ -705,7 +713,7 @@ body {
     .chart-y-axis { display: none; }
     .trust-grid { flex-direction: column; gap: 12px; align-items: center; }
 }
-/* Force Footer Visibility & White Text (#ffffff) on Dark Background across all pages */
+/* Force Footer Visibility & White Text (#ffffff / #e2e8f0) on Dark Background across all pages */
 footer,
 .site-footer {
     display: block !important;
@@ -716,33 +724,46 @@ footer,
 }
 
 footer h1, footer h2, footer h3, footer h4, footer h5, footer h6,
-footer p, footer a, footer span, footer strong, footer li,
 .site-footer h1, .site-footer h2, .site-footer h3, .site-footer h4, .site-footer h5, .site-footer h6,
-.site-footer p, .site-footer a, .site-footer span, .site-footer strong, .site-footer li,
+.site-footer strong, footer strong,
 .site-footer .footer-brand-name,
+.site-footer .footer-col-links h4 {
+    color: #ffffff !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-weight: 700 !important;
+}
+
+footer p, footer span, footer li,
+.site-footer p, .site-footer span, .site-footer li,
 .site-footer .footer-brand-desc,
-.site-footer .footer-col-links h4,
-.site-footer .footer-col-links a,
 .site-footer .footer-legal-notice,
 .site-footer .footer-legal-notice p,
 .site-footer .footer-copyright,
 .site-footer .footer-meta {
-    color: #ffffff !important;
+    color: #f1f5f9 !important;
     visibility: visible !important;
     opacity: 1 !important;
 }
 
 footer a,
-.site-footer a {
+.site-footer a,
+.site-footer .footer-col-links a {
     color: #ffffff !important;
-    transition: opacity 0.2s ease;
+    visibility: visible !important;
+    opacity: 1 !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 footer a:hover,
-.site-footer a:hover {
-    color: #ffffff !important;
-    text-decoration: underline;
-    opacity: 0.85;
+.site-footer a:hover,
+.site-footer .footer-col-links a:hover,
+footer a:focus,
+.site-footer a:focus {
+    color: #f59e0b !important;
+    text-decoration: underline !important;
+    opacity: 1 !important;
 }
 /* ==========================================================================
    STEP 2 SPECIFIC STYLES
@@ -985,6 +1006,11 @@ footer a:hover,
     border-radius: 12px;
     padding: 18px 20px;
     margin-bottom: 24px;
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .checkbox-header-label {
@@ -1099,6 +1125,7 @@ footer a:hover,
 .step3-screenshots-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    align-items: stretch;
     gap: 16px;
     margin-bottom: 28px;
 }
@@ -1110,6 +1137,8 @@ footer a:hover,
     padding: 16px;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
     box-shadow: 0 4px 12px rgba(11, 47, 104, 0.03);
 }
 
@@ -1125,7 +1154,7 @@ footer a:hover,
     color: var(--color-text-muted);
     line-height: 1.4;
     margin-bottom: 12px;
-    min-height: 38px;
+    min-height: 54px;
 }
 
 /* Format smartphone vertical (Ratio Écran) */
@@ -1202,11 +1231,11 @@ footer a:hover,
 .step4-hero-card {
     position: relative;
     width: 100%;
-    min-height: 420px;
+    min-height: 520px;
     border-radius: 20px;
     overflow: hidden;
     margin-bottom: 24px;
-    padding: 40px;
+    padding: 44px 40px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -1214,17 +1243,18 @@ footer a:hover,
     background-color: #f8fafc;
     background-image: 
         linear-gradient(to right, 
-            rgba(255, 255, 255, 0.95) 0%, 
-            rgba(255, 255, 255, 0.8) 45%, 
-            rgba(255, 255, 255, 0.2) 75%), 
-        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80');
-    background-position: center right;
+            rgba(255, 255, 255, 0.96) 0%, 
+            rgba(255, 255, 255, 0.92) 50%, 
+            rgba(255, 255, 255, 0.35) 75%,
+            rgba(255, 255, 255, 0.05) 100%), 
+        url('images/step4-hero-photo.jpeg');
+    background-position: right 10% center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .step4-hero-content {
-    max-width: 460px;
+    max-width: 520px;
     z-index: 2;
 }
 
@@ -1425,9 +1455,23 @@ footer a:hover,
 }
 
 @media (max-width: 640px) {
-    .step4-hero-card { flex-direction: column; height: auto; }
+    .step4-hero-card { 
+        flex-direction: column; 
+        height: auto; 
+        min-height: auto;
+        padding: 32px 20px;
+        background-image: 
+            linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), 
+            url('images/step4-hero-photo.jpeg');
+        background-position: center;
+        background-size: cover;
+    }
+    .step4-hero-content {
+        max-width: 100%;
+    }
     .form-group-bottom { flex-direction: column; }
     .step4-faq-box { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .step4-handwritten-tag { margin-top: 20px; align-self: flex-end; }
 }
 /* ==========================================================================
    SITE HEADER NAVIGATION LINKS
@@ -1512,26 +1556,26 @@ footer a:hover,
 .footer-logo-group {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 12px;
 }
 
 .footer-brand-name {
     font-size: 1.25rem;
     font-weight: 800;
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 .footer-brand-desc {
-    font-size: 0.88rem;
-    color: #ffffff;
-    line-height: 1.5;
-    max-width: 320px;
+    font-size: 0.9rem;
+    color: #e2e8f0 !important;
+    line-height: 1.6;
+    max-width: 340px;
 }
 
 .footer-col-links h4 {
     font-size: 0.95rem;
-    color: #ffffff;
+    color: #ffffff !important;
     font-weight: 700;
     margin-bottom: 16px;
     text-transform: uppercase;
@@ -1549,36 +1593,45 @@ footer a:hover,
 }
 
 .footer-col-links a {
-    color: #ffffff;
+    color: #ffffff !important;
     text-decoration: none;
-    font-size: 0.88rem;
-    transition: color 0.2s ease, opacity 0.2s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: inline-block;
+    transition: color 0.2s ease;
 }
 
-.footer-col-links a:hover {
-    color: #ffffff;
+.footer-col-links a:hover,
+.footer-col-links a:focus {
+    color: #f59e0b !important;
     text-decoration: underline;
-    opacity: 0.85;
+    opacity: 1 !important;
 }
 
 .footer-bottom-divider {
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(226, 232, 240, 0.25);
     margin: 30px 0 24px;
 }
 
 .footer-legal-notice p {
-    font-size: 0.78rem;
-    color: #ffffff;
-    line-height: 1.5;
+    font-size: 0.8rem;
+    color: #cbd5e1 !important;
+    line-height: 1.6;
     margin-bottom: 12px;
+}
+
+.footer-legal-notice strong {
+    color: #ffffff !important;
+    font-weight: 700;
 }
 
 .footer-copyright {
     text-align: center;
     margin-top: 16px;
     font-size: 0.82rem !important;
-    color: #ffffff !important;
+    color: #e2e8f0 !important;
+    opacity: 1 !important;
 }
 
 @media (max-width: 768px) {
@@ -1759,13 +1812,21 @@ footer a:hover,
 }
 
 .handwritten-tag {
-    position: relative;
-    right: 20px;
     font-family: 'Caveat', cursive;
     color: #0b2f68;
     font-size: 1.4rem;
     font-weight: 700;
     text-align: center;
+}
+
+.step4-tag {
+    position: absolute;
+    bottom: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-15%);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 10;
 }
 
 .steps-timeline {
@@ -1815,9 +1876,17 @@ footer a:hover,
         margin-bottom: 24px !important;
     }
 
-    .handwritten-tag {
+    .handwritten-tag:not(.step4-tag) {
         right: 0 !important;
         margin-top: 4px !important;
+    }
+
+    .step4-tag {
+        bottom: calc(100% + 4px) !important;
+        left: 50% !important;
+        transform: translateX(-15%) !important;
+        right: auto !important;
+        margin-top: 0 !important;
     }
 
     .steps-timeline {
@@ -1844,7 +1913,7 @@ footer a:hover,
     display: none !important;
 }
 
-    /* 3. Calculateur SVG & Badge bleu */
+    /* 3. Calculateur SVG, Annotation & Badge bleu */
     .calculator-section .svg-chart-container,
     .svg-chart-container {
         height: 220px !important;
@@ -1853,18 +1922,39 @@ footer a:hover,
     }
 
     .chart-inner-wrapper {
-        padding: 16px 10px !important;
+        padding: 16px 14px !important;
     }
 
     .chart-value-badge {
         position: relative !important;
         top: auto !important;
         right: auto !important;
-        margin: 0 0 12px 0 !important;
-        display: inline-block !important;
+        margin: 0 auto 12px auto !important;
+        display: block !important;
+        text-align: center !important;
     }
 
-    /* 4. Boutons CTA */
+    .handwritten-note-annotation {
+        top: 50px !important;
+        left: 32% !important;
+        font-size: 1.05rem !important;
+    }
+
+    .handwritten-arrow-svg {
+        width: 45px !important;
+        height: 38px !important;
+        margin-left: 8px !important;
+    }
+
+    /* 4. En-tête Logo mobile responsive */
+    .site-header .logo-group img,
+    .logo-group img,
+    .header-logo-img {
+        width: 58px !important;
+        height: 58px !important;
+    }
+
+    /* 5. Boutons CTA */
     div[style*="justify-content: center"] {
         display: flex !important;
         justify-content: center !important;
@@ -1956,3 +2046,20 @@ footer div:has(> img) {
 }
    
 }
+
+/* 4. Optimisation pour petits écrans mobiles */
+@media (max-width: 480px) {
+  .site-header .logo-group img,
+  .logo-group img,
+  .header-logo-img {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .logo-tagline {
+    font-size: 0.72rem !important;
+  }
+  .handwritten-note-annotation {
+    display: none !important;
+  }
+}
+

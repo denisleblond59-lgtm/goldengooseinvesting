@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function updateCalculator() {
             const monthly = parseInt(sliderAmount.value) || 100;
             const years = parseInt(sliderYears.value) || 20;
-            const rate = 0.08; // 8% rendement annuel moyen
+            const rate = 0.09; // 9% rendement annuel moyen
 
             if (displayAmount) displayAmount.textContent = `€ ${monthly}`;
             if (displayYears) displayYears.textContent = `${years} years`;
@@ -169,7 +169,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 text.setAttribute('font-family', 'sans-serif');
                 text.setAttribute('text-anchor', 'start');
                 
-                const formattedVal = val >= 1000 ? `€${Math.round(val / 1000)}k` : `€${Math.round(val)}`;
+                const formattedVal = val >= 1000000 
+                    ? `€${(val / 1000000).toFixed(1)}M` 
+                    : (val >= 1000 ? `€${Math.round(val / 1000)}k` : `€${Math.round(val)}`);
                 text.textContent = formattedVal;
                 svgChart.appendChild(text);
             }
@@ -183,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (btnAmountMinus) btnAmountMinus.addEventListener('click', () => { sliderAmount.value = Math.max(10, parseInt(sliderAmount.value) - 10); updateCalculator(); });
         if (btnAmountPlus) btnAmountPlus.addEventListener('click', () => { sliderAmount.value = Math.min(1000, parseInt(sliderAmount.value) + 10); updateCalculator(); });
         if (btnYearsMinus) btnYearsMinus.addEventListener('click', () => { sliderYears.value = Math.max(1, parseInt(sliderYears.value) - 1); updateCalculator(); });
-        if (btnYearsPlus) btnYearsPlus.addEventListener('click', () => { sliderYears.value = Math.min(40, parseInt(sliderYears.value) + 1); updateCalculator(); });
+        if (btnYearsPlus) btnYearsPlus.addEventListener('click', () => { sliderYears.value = Math.min(100, parseInt(sliderYears.value) + 1); updateCalculator(); });
 
         updateCalculator();
         window.addEventListener('resize', updateCalculator);

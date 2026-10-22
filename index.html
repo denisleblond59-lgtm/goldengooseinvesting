@@ -20,7 +20,7 @@
     <header class="site-header">
         <div class="container header-container">
             <a href="index.html" class="logo-group" style="text-decoration: none;">
-                <img src="images/golden-goose-logo.jpeg" alt="Golden Goose Logo" width="48" height="48" style="display: block; object-fit: contain;">
+                <img src="images/golden-goose-logo.jpeg" alt="Golden Goose Logo" width="76" height="76" class="header-logo-img" style="display: block; object-fit: contain;">
                 <div class="brand-text-block">
   <span class="logo-text" style="font-weight: 700; font-size: 1.25rem; color: #0b192c; display: block; line-height: 1.2;">Golden Goose</span>
   <span class="logo-tagline" style="font-size: 0.8rem; color: #1e293b; display: block; margin-top: 2px; line-height: 1.35;">
@@ -32,13 +32,14 @@
             
             <nav class="main-nav-menu">
                 <!-- Sélecteur de langue -->
-<div class="lang-switcher" style="display: inline-flex; gap: 8px; margin-right: 15px; font-weight: 500;">
-  <a href="?lang=en" style="text-decoration: none; color: inherit;">EN</a> |
-  <a href="?lang=cs" style="text-decoration: none; color: inherit;">CS</a> |
-  <a href="?lang=de" style="text-decoration: none; color: inherit;">DE</a>
-</div>
-<a href="about.html" class="nav-link" style="color: #0b192c; font-weight: 600; text-decoration: none;">Why this works</a>
-<a href="step1.html" class="btn btn-primary" style="background-color: #0f9f48; color: #ffffff; padding: 10px 20px; border-radius: 8px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">Start Step 1 &rarr;</a>
+                <div class="lang-switcher" style="display: inline-flex; gap: 8px; margin-right: 15px; font-weight: 500;">
+                    <a href="?lang=en" style="text-decoration: none; color: inherit;">EN</a> |
+                    <a href="?lang=cs" style="text-decoration: none; color: inherit;">CS</a> |
+                    <a href="?lang=de" style="text-decoration: none; color: inherit;">DE</a>
+                </div>
+                <a href="about.html" class="nav-link" style="color: #0b192c; font-weight: 600; text-decoration: none;">About Stefan</a>
+                <a href="faq.html" class="nav-link" style="color: #0b192c; font-weight: 600; text-decoration: none;">FAQ</a>
+                <a href="step1.html" class="btn btn-primary" style="background-color: #0f9f48; color: #ffffff; padding: 10px 20px; border-radius: 8px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">Start Step 1 &rarr;</a>
             </nav>
         </div>
     </header>
@@ -64,18 +65,9 @@
 <section style="margin: 20px auto 60px auto; padding: 0 20px; max-width: 1100px;">
 <div class="path-card" style="margin-top: 0; position: relative; z-index: 10; background: #ffffff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); padding: 32px;">
     
-        <!-- Titre avec Annotation "That's it!" -->
+        <!-- Titre de la section -->
 <div class="steps-header">
     <h2 style="font-size: 2.2rem; color: #0b2f68; font-weight: 800; margin: 0;">Your path to becoming an investor</h2>
-    
-    <!-- Note manuscrite et flèche -->
-    <div class="handwritten-tag">
-        <span>That's it!</span>
-        <svg viewBox="0 0 40 40" fill="none" stroke="#0b2f68" stroke-width="2" stroke-linecap="round" style="width: 32px; height: 32px; position: absolute; top: 10px; right: -30px;">
-            <path d="M 5,5 Q 15,20 25,30" />
-            <path d="M 18,24 L 25,30 L 28,20" />
-        </svg>
-    </div>
 </div>
 
 <!-- Timeline 4 Étapes avec Ligne Grise Traversante -->
@@ -104,13 +96,23 @@
         <p style="font-size: 0.88rem; color: #64748b; line-height: 1.4; margin: 0;">your automatic monthly investment with one diversified ETF.<br><small style="color: #94a3b8; font-size: 0.78rem;">(Vanguard S&P 500 UCITS ETF - VUAA)</small></p>
     </div>
 
-    <!-- Étape 4 -->
-    <div class="step-item">
-        <div style="width: 64px; max-width: 64px !important; height: 64px; background: #dcfce7; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; font-size: 1.8rem; font-weight: 800; color: #0f172a;">4</div>
+    <!-- Étape 4 avec flèche "That's it!" pointant directement vers le cercle 4 -->
+    <div class="step-item step-item-4">
+        <div class="step-circle-wrapper" style="position: relative; width: 64px; height: 64px; margin: 0 auto 16px auto;">
+            <div style="width: 64px; max-width: 64px !important; height: 64px; background: #dcfce7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 800; color: #0f172a;">4</div>
+            <div class="handwritten-tag step4-tag" style="position: absolute; bottom: calc(100% + 4px); left: 50%; transform: translateX(-15%); white-space: nowrap; pointer-events: none; z-index: 10;">
+                <span style="font-family: 'Caveat', cursive; color: #0b2f68; font-size: 1.45rem; font-weight: 700; display: inline-block;">That's it!</span>
+                <svg viewBox="0 0 40 40" fill="none" stroke="#0b2f68" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width: 28px; height: 28px; display: block; margin: -4px auto 0 8px;">
+                    <path d="M 22,2 Q 18,16 6,24" />
+                    <path d="M 5,16 L 6,24 L 14,24" />
+                </svg>
+            </div>
+        </div>
         <h3 style="font-size: 1.15rem; color: #0b2f68; font-weight: 800; margin-bottom: 6px;">Leave it alone</h3>
         <p style="font-size: 0.88rem; color: #64748b; line-height: 1.4; margin: 0; margin-bottom: 8px;">and let time work its magic.</p>
         <p style="font-size: 0.8rem; color: #64748b; line-height: 1.3; margin: 0;">You're always in control - adjust, pause, stop or access your money anytime.</p>
     </div>
+</div>
 </div>
 </section>
    <!-- Calculator Box avec Effet de Chevauchement (Overlapping Card) -->
@@ -121,15 +123,15 @@
             <div class="chart-header-block" style="margin-bottom: 24px;">
                 <h2 style="font-size: 2.2rem; color: #0b2f68; font-weight: 800; margin-bottom: 8px;">Small steps. A huge difference.</h2>
                 <p class="chart-description" style="font-size: 1.05rem; color: #64748b; max-width: 720px; line-height: 1.5;">
-                    This is the power of compounding. Invest €1,000 per year for 18 years, then let it grow. At an average annual return of 9%, it could be worth around <strong style="color: #d97706;">€2.6 million</strong> at age 65.
+                    This is the power of compounding. Invest €1,200 per year for 18 years, then let it grow. At an average annual return of 9%, it could be worth around <strong style="color: #d97706;">€3.63 millions</strong> at age 65, even more if you keep saving.
                 </p>
             </div>
 
             <!-- Conteneur Gris Intérieur - Pleine Largeur -->
             <div class="chart-inner-wrapper" style="position: relative; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 28px 28px 16px 28px; width: 100%; box-sizing: border-box;">
                 
-                <!-- En-tête : Légende à gauche & Badge Prix à droite -->
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <!-- En-tête : Légende à gauche & Badge Prix à droite (aligné avec le pic à 65 ans) -->
+                <div class="chart-top-bar" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
                     <!-- Légende à gauche -->
                     <div class="chart-legend-block" style="display: flex; gap: 20px; font-size: 0.9rem; font-weight: 600;">
                         <div class="legend-item" style="display: flex; align-items: center; gap: 8px;">
@@ -140,18 +142,18 @@
                         </div>
                     </div>
 
-                    <!-- Badge Prix en haut à droite -->
-                    <div class="chart-value-badge" style="background: #0b2f68; color: #fff; padding: 8px 18px; border-radius: 10px; font-weight: 700; text-align: center; box-shadow: 0 4px 12px rgba(11,47,104,0.18);">
-                        ~ €2,600,000<br><small style="font-weight: 400; font-size: 0.8rem;">at age 65</small>
+                    <!-- Badge Prix en haut à droite (au-dessus du pic de €3.63M) -->
+                    <div class="chart-value-badge" style="background: #0b2f68; color: #ffffff; padding: 8px 18px; border-radius: 10px; font-weight: 700; text-align: center; box-shadow: 0 4px 12px rgba(11,47,104,0.18); line-height: 1.3;">
+                        ~ €3,630,000<br><small style="font-weight: 400; font-size: 0.8rem; opacity: 0.95;">at age 65</small>
                     </div>
                 </div>
 
-                <!-- Annotation Manuscrite bien placée au centre -->
-                <div class="handwritten-note-annotation" style="position: absolute; top: 100px; left: 38%; font-family: 'Caveat', cursive; color: #0b2f68; font-size: 1.35rem; line-height: 1.2; z-index: 3;">
+                <!-- Annotation Manuscrite orientée vers la courbe exponentielle orange -->
+                <div class="handwritten-note-annotation" style="position: absolute; top: 110px; left: 42%; font-family: 'Caveat', cursive; color: #0b2f68; font-size: 1.35rem; line-height: 1.2; z-index: 3; transform: rotate(-3deg); pointer-events: none;">
                     <span>- Time turns<br>small investments<br>into big opportunities.</span>
-                    <svg class="handwritten-arrow-svg" viewBox="0 0 50 40" fill="none" stroke="#0b2f68" stroke-width="2" stroke-linecap="round" style="width: 48px; height: 36px; margin-top: 4px;">
-                        <path d="M 5,5 Q 30,5 38,25" />
-                        <path d="M 28,20 L 38,25 L 38,12" />
+                    <svg class="handwritten-arrow-svg" viewBox="0 0 70 60" fill="none" stroke="#0b2f68" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width: 65px; height: 55px; margin-top: 2px; margin-left: 20px; display: block;">
+                        <path d="M 8,6 Q 30,12 58,48" />
+                        <path d="M 44,46 L 58,48 L 56,34" />
                     </svg>
                 </div>
 
@@ -159,32 +161,37 @@
                 <div class="svg-chart-container" style="position: relative; width: 100%; height: 360px;">
                     <svg id="compounding-chart" viewBox="0 0 1000 360" preserveAspectRatio="none" style="width: 100%; height: 100%; display: block; overflow: visible;">
                         
-                        <!-- 1. Courbe Dorée (Growth) -->
-                        <path d="M 30,310 C 350,308 680,240 900,30 L 900,310 Z" fill="#d97706" opacity="0.88" />
+                        <!-- Lignes de repère horizontales Y pour guidage visuel -->
+                        <line x1="30" y1="217" x2="900" y2="217" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4 4" opacity="0.7" />
+                        <line x1="30" y1="123" x2="900" y2="123" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4 4" opacity="0.7" />
+                        <line x1="30" y1="30" x2="900" y2="30" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4 4" opacity="0.7" />
 
-                        <!-- 2. Courbe Bleue (Contributions) -->
-                        <path d="M 30,310 C 350,309 680,295 900,275 L 900,310 Z" fill="#2563eb" opacity="0.9" />
+                        <!-- 1. Courbe Dorée (Growth exponentielle jusqu'à ~3.63M à 65 ans) -->
+                        <path d="M 30,310 C 150,305 270,286 271,286 C 500,286 720,180 900,30 L 900,310 Z" fill="#d97706" opacity="0.88" />
+
+                        <!-- 2. Courbe Bleue (Contributions: monte jusqu'à 18 ans puis reste parfaitement plate jusqu'à 65 ans) -->
+                        <path d="M 30,310 L 271,290 L 900,290 L 900,310 Z" fill="#2563eb" opacity="0.9" />
 
                         <!-- 3. Ligne d'axe X au bas -->
-                        <line x1="30" y1="310" x2="900" y2="310" stroke="#cbd5e1" stroke-width="1" />
+                        <line x1="30" y1="310" x2="900" y2="310" stroke="#cbd5e1" stroke-width="1.5" />
 
                         <!-- 4. Point sommet (Dot) -->
-                        <circle cx="900" cy="30" r="6" fill="#b45309" />
+                        <circle cx="900" cy="30" r="6" fill="#b45309" stroke="#ffffff" stroke-width="2" />
 
-                        <!-- 5. Libellés Axe X (Âges) -->
-                        <text x="30" y="340" font-size="13" fill="#64748b" font-family="sans-serif">Age</text>
-                        <text x="200" y="340" font-size="13" fill="#64748b" font-family="sans-serif" text-anchor="middle">20</text>
-                        <text x="370" y="340" font-size="13" fill="#64748b" font-family="sans-serif" text-anchor="middle">30</text>
-                        <text x="540" y="340" font-size="13" fill="#64748b" font-family="sans-serif" text-anchor="middle">40</text>
-                        <text x="700" y="340" font-size="13" fill="#64748b" font-family="sans-serif" text-anchor="middle">50</text>
-                        <text x="820" y="340" font-size="13" fill="#64748b" font-family="sans-serif" text-anchor="middle">60</text>
-                        <text x="900" y="340" font-size="13" fill="#64748b" font-family="sans-serif" text-anchor="end">65</text>
+                        <!-- 5. Libellés Axe X (Origine actualisée de 'Age' à '0') -->
+                        <text x="30" y="340" font-size="13" font-weight="600" fill="#64748b" font-family="'Inter', sans-serif" text-anchor="middle">0</text>
+                        <text x="200" y="340" font-size="13" font-weight="500" fill="#64748b" font-family="'Inter', sans-serif" text-anchor="middle">20</text>
+                        <text x="370" y="340" font-size="13" font-weight="500" fill="#64748b" font-family="'Inter', sans-serif" text-anchor="middle">30</text>
+                        <text x="540" y="340" font-size="13" font-weight="500" fill="#64748b" font-family="'Inter', sans-serif" text-anchor="middle">40</text>
+                        <text x="700" y="340" font-size="13" font-weight="500" fill="#64748b" font-family="'Inter', sans-serif" text-anchor="middle">50</text>
+                        <text x="820" y="340" font-size="13" font-weight="500" fill="#64748b" font-family="'Inter', sans-serif" text-anchor="middle">60</text>
+                        <text x="900" y="340" font-size="13" font-weight="600" fill="#64748b" font-family="'Inter', sans-serif" text-anchor="end">65</text>
 
-                        <!-- 6. Libellés Axe Y (Montants positionnés à DROITE) -->
-                        <text x="915" y="314" font-size="12" fill="#64748b" font-family="sans-serif">€0</text>
-                        <text x="915" y="220" font-size="12" fill="#64748b" font-family="sans-serif">€800k</text>
-                        <text x="915" y="125" font-size="12" fill="#64748b" font-family="sans-serif">€1.7M</text>
-                        <text x="915" y="34" font-size="12" fill="#64748b" font-family="sans-serif">€2.6M</text>
+                        <!-- 6. Libellés Axe Y (Typographie Inter ajustée, espacement vertical aéré, alignement centré) -->
+                        <text x="918" y="310" font-size="13" font-weight="600" fill="#475569" font-family="'Inter', sans-serif" dominant-baseline="central">€0</text>
+                        <text x="918" y="217" font-size="13" font-weight="600" fill="#475569" font-family="'Inter', sans-serif" dominant-baseline="central">€1.2M</text>
+                        <text x="918" y="123" font-size="13" font-weight="600" fill="#475569" font-family="'Inter', sans-serif" dominant-baseline="central">€2.4M</text>
+                        <text x="918" y="30" font-size="13" font-weight="700" fill="#0b2f68" font-family="'Inter', sans-serif" dominant-baseline="central">€3.63M</text>
                     </svg>
                 </div>
 
@@ -246,7 +253,7 @@
                 <div class="footer-col-links">
                     <h4>Navigation</h4>
                     <ul>
-                        <li><a href="index.html">Home &amp; Calculator</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Stefan</a></li>
                         <li><a href="faq.html">FAQ</a></li>
                         <li><a href="step1.html">Start Guide (Step 1)</a></li>
