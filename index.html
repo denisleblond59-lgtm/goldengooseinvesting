@@ -72,7 +72,7 @@
     <div class="handwritten-tag">
         <span>That's it!</span>
         <svg viewBox="0 0 40 40" fill="none" stroke="#0b2f68" stroke-width="2" stroke-linecap="round" style="width: 32px; height: 32px; position: absolute; top: 10px; right: -30px;">
-            <path d="M 5,5 Q 25,30" />
+            <path d="M 5,5 Q 15,20 25,30" />
             <path d="M 18,24 L 25,30 L 28,20" />
         </svg>
     </div>
@@ -230,8 +230,7 @@
     <!-- Footer Global -->
     <footer class="site-footer">
         <div class="container">
-            <div class="footer-grid">
-                
+            <div class="footer-grid">       
                 <!-- Colonne 1: Marque -->
                 <div class="footer-col-brand">
                     <div class="footer-logo-group">
@@ -285,7 +284,7 @@
   const urlParams = new URLSearchParams(window.location.search);
   const currentLang = urlParams.get('lang') || 'en';
 
-  fetch(`/content/${currentLang}/home.json`)
+  fetch(`./content/${currentLang}/home.json`)
     .then(res => res.json())
     .then(data => {
       if (data.title) {

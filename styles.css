@@ -697,13 +697,52 @@ body {
 
 .trust-item { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; }
 .trust-check { color: var(--color-mint); font-weight: bold; }
-.footer-meta { font-size: 0.85rem; color: #94a3b8; }
+.footer-meta { font-size: 0.85rem; color: #ffffff; }
 
 @media (max-width: 768px) {
     .hero-container, .chart-layout-grid, .steps-grid, .benefits-grid, .step1-hero-grid, .controls-grid, .simulation-output-grid { flex-direction: column; grid-template-columns: 1fr; }
     .chart-inner-wrapper { padding-right: 20px; }
     .chart-y-axis { display: none; }
     .trust-grid { flex-direction: column; gap: 12px; align-items: center; }
+}
+/* Force Footer Visibility & White Text (#ffffff) on Dark Background across all pages */
+footer,
+.site-footer {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background-color: var(--color-navy) !important;
+    color: #ffffff !important;
+}
+
+footer h1, footer h2, footer h3, footer h4, footer h5, footer h6,
+footer p, footer a, footer span, footer strong, footer li,
+.site-footer h1, .site-footer h2, .site-footer h3, .site-footer h4, .site-footer h5, .site-footer h6,
+.site-footer p, .site-footer a, .site-footer span, .site-footer strong, .site-footer li,
+.site-footer .footer-brand-name,
+.site-footer .footer-brand-desc,
+.site-footer .footer-col-links h4,
+.site-footer .footer-col-links a,
+.site-footer .footer-legal-notice,
+.site-footer .footer-legal-notice p,
+.site-footer .footer-copyright,
+.site-footer .footer-meta {
+    color: #ffffff !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+footer a,
+.site-footer a {
+    color: #ffffff !important;
+    transition: opacity 0.2s ease;
+}
+
+footer a:hover,
+.site-footer a:hover {
+    color: #ffffff !important;
+    text-decoration: underline;
+    opacity: 0.85;
 }
 /* ==========================================================================
    STEP 2 SPECIFIC STYLES
@@ -1485,7 +1524,7 @@ body {
 
 .footer-brand-desc {
     font-size: 0.88rem;
-    color: #94a3b8;
+    color: #ffffff;
     line-height: 1.5;
     max-width: 320px;
 }
@@ -1510,26 +1549,27 @@ body {
 }
 
 .footer-col-links a {
-    color: #94a3b8;
+    color: #ffffff;
     text-decoration: none;
     font-size: 0.88rem;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .footer-col-links a:hover {
     color: #ffffff;
     text-decoration: underline;
+    opacity: 0.85;
 }
 
 .footer-bottom-divider {
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.2);
     margin: 30px 0 24px;
 }
 
 .footer-legal-notice p {
     font-size: 0.78rem;
-    color: #94a3b8;
+    color: #ffffff;
     line-height: 1.5;
     margin-bottom: 12px;
 }
@@ -1538,7 +1578,7 @@ body {
     text-align: center;
     margin-top: 16px;
     font-size: 0.82rem !important;
-    color: #64748b !important;
+    color: #ffffff !important;
 }
 
 @media (max-width: 768px) {

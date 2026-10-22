@@ -1,0 +1,15 @@
+# Mémoire permanente - Projet Golden Goose
+
+## Structure du projet
+- CSS principal : `styles.css`
+- Pages HTML : `index.html`, `about.html`, `disclaimer.html`, `faq.html`, `impressum.html`, `privacy.html`, `step1.html` à `step4.html`, `terms.html`
+
+## Charte graphique et règles CSS
+- Couleur de fond header/footer : Bleu nuit (`#0b2f68`)
+- Texte sur fond sombre (titres, paragraphes, liens, li) : Toujours blanc (`#ffffff`) avec `opacity: 1` et `visibility: visible`
+- Liens au survol (`:hover`) : Orange (`#f59e0b`)
+
+## Directives d'exécution pour l'agent
+- Ne JAMAIS exécuter de commandes dans le terminal (pas de git, pas de grep, pas de bash).
+- Ne pas scanner l'arborescence des images ou des scripts JS sauf demande explicite.
+- Aller directement modifier `styles.css` ou la page HTML concernée sans phase de diagnostic globale.
