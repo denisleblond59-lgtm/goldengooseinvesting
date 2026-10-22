@@ -1505,25 +1505,17 @@ footer a:focus,
         font-size: 0.88rem;
     }
 }
-/* Alignement En-tête Navigation + Progression */
-.main-nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
 
-.nav-link {
+.lang-switcher a {
     color: var(--color-navy);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
     transition: color 0.2s ease;
 }
 
-.nav-link:hover {
+.lang-switcher a:hover {
     color: var(--color-mint);
 }
 
+/* Alignement En-tête Navigation + Progression */
 .step-progress-indicator {
     display: flex;
     align-items: center;

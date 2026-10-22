@@ -1,5 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    // Détection de la langue de la page (en, cs, de)
+    const lang = document.documentElement.lang || 'en';
+
+    const i18n = {
+        en: {
+            yearsText: (y) => `${y} years`,
+            headlineSummary: (m) => `€${m}/month could become approximately`,
+            inYears: (y) => `in ${y} years`,
+            btnContinue: (m) => `I'll invest €${m}/month → Continue to Step 2`,
+            formSuccess: "Thanks! Your message has been sent to Stefan.",
+            formError: "Oops! There was a problem submitting your form.",
+            formNetworkError: "Oops! Please check your connection and try again."
+        },
+        cs: {
+            yearsText: (y) => {
+                if (y === 1) return `1 rok`;
+                if (y >= 2 && y <= 4) return `${y} roky`;
+                return `${y} let`;
+            },
+            headlineSummary: (m) => `€${m}/měsíčně by mohlo přinést přibližně`,
+            inYears: (y) => {
+                if (y === 1) return `za 1 rok`;
+                if (y >= 2 && y <= 4) return `za ${y} roky`;
+                return `za ${y} let`;
+            },
+            btnContinue: (m) => `Budu investovat €${m}/měsíc → Pokračovat ke Kroku 2`,
+            formSuccess: "Děkujeme! Vaše zpráva byla odeslána Stefanovi.",
+            formError: "Jejda! Při odesílání formuláře došlo k chybě.",
+            formNetworkError: "Jejda! Zkontrolujte prosím připojení k internetu a zkuste to znovu."
+        },
+        de: {
+            yearsText: (y) => y === 1 ? `1 Jahr` : `${y} Jahre`,
+            headlineSummary: (m) => `€${m}/Monat könnten ungefähr werden`,
+            inYears: (y) => y === 1 ? `in 1 Jahr` : `in ${y} Jahren`,
+            btnContinue: (m) => `Ich investiere €${m}/Monat → Weiter zu Schritt 2`,
+            formSuccess: "Vielen Dank! Ihre Nachricht wurde an Stefan gesendet.",
+            formError: "Hoppla! Beim Absenden des Formulars ist ein Problem aufgetreten.",
+            formNetworkError: "Hoppla! Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut."
+        }
+    };
+
+    const currentTexts = i18n[lang] || i18n.en;
+
     // Elements du calculateur
     const sliderAmount = document.getElementById('slider-amount');
     const sliderYears = document.getElementById('slider-years');
@@ -29,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const rate = 0.09; // 9% rendement annuel moyen
 
             if (displayAmount) displayAmount.textContent = `€ ${monthly}`;
-            if (displayYears) displayYears.textContent = `${years} years`;
+            if (displayYears) displayYears.textContent = currentTexts.yearsText(years);
 
             let currentVal = 0;
             const yearlyData = [{ year: 0, contributions: 0, total: 0 }];
@@ -49,17 +92,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const totalContributions = monthly * 12 * years;
             const growth = total - totalContributions;
 
-            const fmt = (num) => '€' + Math.round(num).toLocaleString('en-US');
+            const fmt = (num) => '€' + Math.round(num).toLocaleString(lang === 'de' ? 'de-DE' : (lang === 'cs' ? 'cs-CZ' : 'en-US'));
 
-            if (displayHeadlineSummary) displayHeadlineSummary.textContent = `€${monthly}/month could become approximately`;
+            if (displayHeadlineSummary) displayHeadlineSummary.textContent = currentTexts.headlineSummary(monthly);
             if (displayTotalHeadline) displayTotalHeadline.textContent = fmt(total);
-            if (displayYearsHeadline) displayYearsHeadline.textContent = `in ${years} years`;
+            if (displayYearsHeadline) displayYearsHeadline.textContent = currentTexts.inYears(years);
 
             if (displayContributions) displayContributions.textContent = fmt(totalContributions);
             if (displayGrowth) displayGrowth.textContent = fmt(growth);
 
             if (btnContinue) {
-                btnContinue.textContent = `I'll invest €${monthly}/month → Continue to Step 2`;
+                btnContinue.textContent = currentTexts.btnContinue(monthly);
             }
 
             drawAreaChart(yearlyData, total, years);
@@ -232,21 +275,28 @@ if (form) {
                 'Accept': 'application/json' // This tells Formspree we want a silent background response
             }
         }).then(response => {
+            const pageLang = document.documentElement.lang || 'en';
+            const msgSuccess = pageLang === 'cs' ? "Děkujeme! Vaše zpráva byla odeslána Stefanovi." : (pageLang === 'de' ? "Vielen Dank! Ihre Nachricht wurde an Stefan gesendet." : "Thanks! Your message has been sent to Stefan.");
+            const msgError = pageLang === 'cs' ? "Jejda! Při odesílání formuláře došlo k chybě." : (pageLang === 'de' ? "Hoppla! Beim Absenden des Formulars ist ein Problem aufgetreten." : "Oops! There was a problem submitting your form.");
+            const msgNetError = pageLang === 'cs' ? "Jejda! Zkontrolujte prosím připojení k internetu a zkuste to znovu." : (pageLang === 'de' ? "Hoppla! Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut." : "Oops! Please check your connection and try again.");
+
             if (response.ok) {
                 // Success! Clear the form and show a green thank you message
                 form.reset();
-                statusMessage.innerHTML = "Thanks! Your message has been sent to Stefan. ";
+                statusMessage.innerHTML = msgSuccess;
                 statusMessage.style.color = "#16a34a"; // A nice green color
                 statusMessage.style.display = "block";
             } else {
                 // If there's an error on Formspree's side
-                statusMessage.innerHTML = "Oops! There was a problem submitting your form.";
+                statusMessage.innerHTML = msgError;
                 statusMessage.style.color = "#dc2626"; // A red color
                 statusMessage.style.display = "block";
             }
         }).catch(error => {
+            const pageLang = document.documentElement.lang || 'en';
+            const msgNetError = pageLang === 'cs' ? "Jejda! Zkontrolujte prosím připojení k internetu a zkuste to znovu." : (pageLang === 'de' ? "Hoppla! Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut." : "Oops! Please check your connection and try again.");
             // If the user's internet drops
-            statusMessage.innerHTML = "Oops! Please check your connection and try again.";
+            statusMessage.innerHTML = msgNetError;
             statusMessage.style.color = "#dc2626";
             statusMessage.style.display = "block";
         });

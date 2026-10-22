@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Goose — Krok 4: Gratulujeme!</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Disclaimer Banner -->
+    <div class="disclaimer-banner">
+        <span><strong>Vzdělávací iniciativa:</strong> Golden Goose poskytuje bezplatné a nezávislé finanční vzdělávání. Neprodáváme finanční produkty ani neposkytujeme regulované investiční poradenství.</span>
+    </div>
+
+    <!-- Header Navigation -->
+<header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo-group" style="text-decoration: none;">
+                <img src="../images/golden-goose-logo.jpeg" alt="Golden Goose Logo" width="76" height="76" class="header-logo-img" style="display: block; object-fit: contain;">
+                <div class="brand-text-block">
+  <span class="logo-text" style="font-weight: 700; font-size: 1.25rem; color: #0b192c; display: block; line-height: 1.2;">Golden Goose</span>
+  <span class="logo-tagline" style="font-size: 0.8rem; color: #1e293b; display: block; margin-top: 2px; line-height: 1.35;">
+    Jednoduché investování. Více bezpečí. Více možností. Finanční svoboda.<br>
+    Vytvořil Stefan Reinders
+  </span>
+</div>
+            </a>
+
+            <div style="display: flex; align-items: center; gap: 32px;">
+                <nav class="main-nav-menu">
+                    <div class="lang-switcher" style="display: inline-flex; gap: 8px; margin-right: 15px; font-weight: 500;">
+                        <a href="../step4.html" style="text-decoration: none; color: inherit;">EN</a> |
+                        <a href="./step4.html" style="text-decoration: none; color: inherit; font-weight: 700;">CS</a> |
+                        <a href="../de/step4.html" style="text-decoration: none; color: inherit;">DE</a>
+                    </div>
+                    <a href="about.html" class="nav-link">O Stefanovi</a>
+                    <a href="faq.html" class="nav-link">FAQ</a>
+                </nav>
+
+                <div class="step-progress-indicator">
+                    <span class="progress-step active">1</span>
+                    <span class="progress-line active-line"></span>
+                    <span class="progress-step active">2</span>
+                    <span class="progress-line active-line"></span>
+                    <span class="progress-step active">3</span>
+                    <span class="progress-line active-line"></span>
+                    <span class="progress-step active">4</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="step-container">
+        <div class="container" style="max-width: 860px;">
+            
+            <!-- Section Hero Supérieure avec Photo en Arrière-Plan -->
+            <div class="step4-hero-card">
+                <div class="step4-hero-content">
+                    <h1 class="step4-main-title">Gratulujeme. 🎉</h1>
+                    <h2 class="step4-sub-title">Nyní jste investorem.</h2>
+                    <div class="step4-body-paragraphs" style="margin-top: 14px;">
+                        <p style="font-weight: 700; color: #166534; font-size: 1.05rem; margin-bottom: 12px; line-height: 1.5;">Gratulujeme! Nyní jste investorem! 🥳</p>
+                        <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 12px; line-height: 1.6;">
+                            Nastavili jste automatické měsíční investice do VUAA. Váš investiční stroj teď běží zcela samostatně na pozadí.
+                        </p>
+                        <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 16px; line-height: 1.6;">
+                            Nejlepší, co teď můžete udělat, je nechat to být. Nesledujte denní výkyvy trhu. Nechte čas a složené úročení pracovat pro vás.
+                        </p>
+                        <a href="faq.html" class="step4-faq-link">Máte otázky? Přečtěte si FAQ →</a>
+                    </div>
+
+                    <!-- Badge Vert de Confirmation -->
+                    <div class="step4-confirmation-badge">
+                        <div class="badge-check-circle">✓</div>
+                        <div class="badge-text">
+                            <strong>Automatické investování aktivní</strong>
+                            <p>Vaše investice běží každý měsíc automaticky.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step4-handwritten-tag">
+                    Skvělá práce!
+                </div>
+            </div>
+
+            <!-- Section Formulaire de Contact Direct -->
+            <div class="step4-contact-card">
+                <div class="contact-card-header">
+                    <span class="contact-icon">✉️</span>
+                    <div>
+                        <h3>Máte otázku nebo zpětnou vazbu?</h3>
+                        <p>Máte dotaz nebo chcete sdílet zpětnou vazbu k tomuto průvodci? Napište Stefanovi níže.</p>
+                    </div>
+                </div>
+
+                <form id="contact-form" action="https://formspree.io/f/xeaeprgg" method="POST" class="step4-contact-form">
+                    <textarea name="message" rows="3" placeholder="Ahoj Stefane, rád(a) bych se zeptal(a)..." required></textarea>
+                    <div class="form-group-bottom">
+                        <input type="email" name="email" placeholder="Váš e-mail" required class="email-input">
+                        <button type="submit" class="btn btn-primary send-btn">Odeslat zprávu</button>
+                    </div>
+                    <span class="form-disclaimer">Stefan se snaží odpovídat na všechny zprávy do několika dní. Vaše osobní údaje nebudou nikdy sdíleny.</span>
+                    <div id="form-status" style="margin-top: 10px; font-weight: 600; display: none;"></div>
+                </form>
+            </div>
+
+            <!-- Section FAQ Box Inférieure -->
+            <div class="step4-faq-box">
+                <div class="faq-box-content">
+                    <span class="faq-icon">❓</span>
+                    <div>
+                        <h3>Máte další otázky?</h3>
+                        <p>Projděte si odpovědi na nejčastější dotazy v našem FAQ.</p>
+                    </div>
+                </div>
+                <a href="faq.html" class="faq-button-link">Přejít do FAQ →</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer Global -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <!-- Colonne 1: Marque -->
+                <div class="footer-col-brand">
+                    <div class="footer-logo-group">
+                        <img src="../images/golden-goose-logo.jpeg" alt="Golden Goose" class="footer-logo-img">
+                        <span class="footer-brand-name">Golden Goose</span>
+                    </div>
+                    <p class="footer-brand-desc">
+                        Bezplatné, nezávislé a automatizované finanční vzdělávání. Pomáháme lidem budovat dlouhodobé bohatství.
+                    </p>
+                </div>
+
+                <!-- Colonne 2: Navigation -->
+                <div class="footer-col-links">
+                    <h4>Navigace</h4>
+                    <ul>
+                        <li><a href="index.html">Domů</a></li>
+                        <li><a href="about.html">O Stefanovi</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="step1.html">Průvodce (Krok 1)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 3: Legal & Regulatory -->
+                <div class="footer-col-links">
+                    <h4>Právní informace</h4>
+                    <ul>
+                        <li><a href="../privacy.html">Zásady ochrany osobních údajů (GDPR)</a></li>
+                        <li><a href="../terms.html">Podmínky použití</a></li>
+                        <li><a href="../impressum.html">Impressum / Právní oznámení</a></li>
+                        <li><a href="../disclaimer.html">Finanční disclaimer</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom-divider"></div>
+
+            <!-- Legal Disclaimer Banner & Copyright -->
+            <div class="footer-legal-notice">
+                <p>
+                    <strong>Finanční disclaimer:</strong> Golden Goose je vzdělávací iniciativa spravovaná Stefanem Reindersem. Veškerý obsah, nástroje a kalkulačky na tomto webu slouží pouze pro vzdělávací a informační účely a nepředstavují regulované investiční, finanční, daňové ani právní poradenství. Investování na finančních trzích, včetně ETF, nese riziko ztráty kapitálu.
+                </p>
+                <p class="footer-copyright">
+                    Golden Goose © 2026. Všechna práva vyhrazena. Vytvořeno s péčí pro nezávislé finanční vzdělávání.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+</body>
+</html>
