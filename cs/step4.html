@@ -64,58 +64,50 @@
                     <h2 class="step4-sub-title">Nyní jste investorem.</h2>
                     <div class="step4-body-paragraphs" style="margin-top: 14px;">
                         <p style="font-weight: 700; color: #166534; font-size: 1.05rem; margin-bottom: 12px; line-height: 1.5;">Gratulujeme! Nyní jste investorem! 🥳</p>
-                        <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 12px; line-height: 1.6;">
-                            Nastavili jste automatické měsíční investice do VUAA. Váš investiční stroj teď běží zcela samostatně na pozadí.
-                        </p>
-                        <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 16px; line-height: 1.6;">
-                            Nejlepší, co teď můžete udělat, je nechat to být. Nesledujte denní výkyvy trhu. Nechte čas a složené úročení pracovat pro vás.
-                        </p>
-                        <a href="faq.html" class="step4-faq-link">Máte otázky? Přečtěte si FAQ →</a>
-                    </div>
-
-                    <!-- Badge Vert de Confirmation -->
-                    <div class="step4-confirmation-badge">
-                        <div class="badge-check-circle">✓</div>
-                        <div class="badge-text">
-                            <strong>Automatické investování aktivní</strong>
-                            <p>Vaše investice běží každý měsíc automaticky.</p>
-                        </div>
+                        <p style="font-size: 0.95rem; color: #1e293b; line-height: 1.6; margin-bottom: 12px;">Dnes jste udělali něco, za co vám vaše budoucí já poděkuje.</p>
+                        <p style="font-size: 0.95rem; color: #1e293b; line-height: 1.6; margin-bottom: 12px;">Vaše peníze se nyní budou investovat automaticky každý měsíc. Nemusíte sledovat akciový trh, předpovídat další propad ani se stát finančním expertem.</p>
+                        <p style="font-size: 0.95rem; color: #1e293b; line-height: 1.6; margin-bottom: 12px;"><strong style="color: var(--color-navy);">Co se bude dít dál?</strong><br>Nic složitého. Žijte svůj život. Nechte čas konat svou práci.</p>
+                        <p style="font-size: 0.95rem; color: #1e293b; line-height: 1.6; margin-bottom: 12px;">Trhy budou stoupat i klesat. To k investování patří. Udržte si dlouhodobý nadhled a pamatujte, že své měsíční příspěvky můžete kdykoli upravit nebo pozastavit, kdykoli budete chtít nebo kdykoli se změní vaše situace.</p>
+                        <p style="font-size: 0.95rem; color: var(--color-navy); font-weight: 700; line-height: 1.6; margin-bottom: 0;">Udělali jste první krok k větší svobodě a více možnostem. Buďte na sebe hrdí! 💪</p>
                     </div>
                 </div>
 
+                <!-- Texte Manuscrit à Droite -->
                 <div class="step4-handwritten-tag">
-                    Skvělá práce!
+                    Jasnější<br>zítřek je<br>možný. ♡
                 </div>
             </div>
 
-            <!-- Section Formulaire de Contact Direct -->
+            <!-- Section Formulaire de Contact / Updates -->
             <div class="step4-contact-card">
                 <div class="contact-card-header">
                     <span class="contact-icon">✉️</span>
                     <div>
-                        <h3>Máte otázku nebo zpětnou vazbu?</h3>
-                        <p>Máte dotaz nebo chcete sdílet zpětnou vazbu k tomuto průvodci? Napište Stefanovi níže.</p>
+                        <h3>Máte otázku nebo chcete občasné novinky?</h3>
+                        <p>Neexistují hloupé otázky. Zeptejte se na cokoli nebo získejte občasná připomenutí, nápady, tipy a důležité novinky.</p>
                     </div>
                 </div>
 
-                <form id="contact-form" action="https://formspree.io/f/xeaeprgg" method="POST" class="step4-contact-form">
-                    <textarea name="message" rows="3" placeholder="Ahoj Stefane, rád(a) bych se zeptal(a)..." required></textarea>
-                    <div class="form-group-bottom">
-                        <input type="email" name="email" placeholder="Váš e-mail" required class="email-input">
-                        <button type="submit" class="btn btn-primary send-btn">Odeslat zprávu</button>
+                <form id="contact-form" class="step4-contact-form" action="https://formspree.io/f/xeaeprgg" method="POST">
+                    <div class="form-group-text">
+                        <textarea name="message" placeholder="Sem napište svou otázku... (volitelné)" rows="3"></textarea>
                     </div>
-                    <span class="form-disclaimer">Stefan se snaží odpovídat na všechny zprávy do několika dní. Vaše osobní údaje nebudou nikdy sdíleny.</span>
-                    <div id="form-status" style="margin-top: 10px; font-weight: 600; display: none;"></div>
+                    <div class="form-group-bottom">
+                        <input type="email" name="email" placeholder="Váš e-mail" class="email-input" required>
+                        <button type="submit" class="btn btn-primary send-btn">Odeslat</button>
+                    </div>
                 </form>
+                <p id="form-status" style="display: none; margin-top: 15px; font-weight: bold; font-size: 0.9rem; text-align: center;"></p>
+                <span class="form-disclaimer">Žádný spam. Kdykoli se můžete odhlásit.</span>
             </div>
 
-            <!-- Section FAQ Box Inférieure -->
+            <!-- Section Lien FAQ -->
             <div class="step4-faq-box">
                 <div class="faq-box-content">
-                    <span class="faq-icon">❓</span>
+                    <span class="faq-icon">📖</span>
                     <div>
-                        <h3>Máte další otázky?</h3>
-                        <p>Projděte si odpovědi na nejčastější dotazy v našem FAQ.</p>
+                        <h3>V této chvíli můžete mít ještě otázky.</h3>
+                        <p>Shromáždil jsem nejčastější dotazy v našem FAQ.</p>
                     </div>
                 </div>
                 <a href="faq.html" class="faq-button-link">Přejít do FAQ →</a>
@@ -155,10 +147,10 @@
                 <div class="footer-col-links">
                     <h4>Právní informace</h4>
                     <ul>
-                        <li><a href="../privacy.html">Zásady ochrany osobních údajů (GDPR)</a></li>
-                        <li><a href="../terms.html">Podmínky použití</a></li>
-                        <li><a href="../impressum.html">Impressum / Právní oznámení</a></li>
-                        <li><a href="../disclaimer.html">Finanční disclaimer</a></li>
+                        <li><a href="privacy.html">Zásady ochrany osobních údajů (GDPR)</a></li>
+                        <li><a href="terms.html">Podmínky použití</a></li>
+                        <li><a href="impressum.html">Impressum / Právní oznámení</a></li>
+                        <li><a href="disclaimer.html">Finanční disclaimer</a></li>
                     </ul>
                 </div>
 

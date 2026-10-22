@@ -64,58 +64,50 @@
                     <h2 class="step4-sub-title">Sie sind jetzt ein Investor.</h2>
                     <div class="step4-body-paragraphs" style="margin-top: 14px;">
                         <p style="font-weight: 700; color: #166534; font-size: 1.05rem; margin-bottom: 12px; line-height: 1.5;">Herzlichen Glückwunsch! Sie sind jetzt ein Investor! 🥳</p>
-                        <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 12px; line-height: 1.6;">
-                            Sie haben Ihren automatischen monatlichen Sparplan in VUAA eingerichtet. Ihre Investitionsmaschine läuft jetzt völlig selbstständig im Hintergrund.
-                        </p>
-                        <p style="color: var(--color-text-muted); font-size: 0.95rem; margin-bottom: 16px; line-height: 1.6;">
-                            Das Beste, was Sie jetzt tun können, ist: einfach laufen lassen. Verfolgen Sie keine täglichen Marktschwankungen. Lassen Sie die Zeit und den Zinseszins für sich arbeiten.
-                        </p>
-                        <a href="faq.html" class="step4-faq-link">Haben Sie Fragen? Lesen Sie die FAQ →</a>
-                    </div>
-
-                    <!-- Badge Vert de Confirmation -->
-                    <div class="step4-confirmation-badge">
-                        <div class="badge-check-circle">✓</div>
-                        <div class="badge-text">
-                            <strong>Automatischer Sparplan aktiv</strong>
-                            <p>Ihre Investition wird jeden Monat automatisch ausgeführt.</p>
-                        </div>
+                        <p style="font-size: 0.95rem; color: #1e293b; line-height: 1.6; margin-bottom: 12px;">Sie haben heute etwas getan, wofür Ihnen Ihr zukünftiges Ich danken wird.</p>
+                        <p style="font-size: 0.95rem; color: #1e293b; line-height: 1.6; margin-bottom: 12px;">Ihr Geld wird nun jeden Monat automatisch investiert. Sie müssen weder den Aktienmarkt verfolgen, den nächsten Crash vorhersagen noch ein Finanzexperte werden.</p>
+                        <p style="font-size: 0.95rem; color: #1e293b; line-height: 1.6; margin-bottom: 12px;"><strong style="color: var(--color-navy);">Und was passiert als Nächstes?</strong><br>Nichts Kompliziertes. Leben Sie Ihr Leben. Lassen Sie die Zeit für sich arbeiten.</p>
+                        <p style="font-size: 0.95rem; color: #1e293b; line-height: 1.6; margin-bottom: 12px;">Die Märkte werden steigen und fallen. Das gehört zum Investieren dazu. Behalten Sie Ihre langfristige Perspektive und denken Sie daran, dass Sie Ihre monatlichen Sparraten jederzeit anpassen oder pausieren können, wann immer Sie möchten oder sich Ihre Lebensumstände ändern.</p>
+                        <p style="font-size: 0.95rem; color: var(--color-navy); font-weight: 700; line-height: 1.6; margin-bottom: 0;">Sie haben den ersten Schritt zu mehr Freiheit und mehr Wahlmöglichkeiten getan. Seien Sie stolz auf sich! 💪</p>
                     </div>
                 </div>
 
+                <!-- Texte Manuscrit à Droite -->
                 <div class="step4-handwritten-tag">
-                    Großartige Arbeit!
+                    Eine hellere<br>Zukunft ist<br>möglich. ♡
                 </div>
             </div>
 
-            <!-- Section Formulaire de Contact Direct -->
+            <!-- Section Formulaire de Contact / Updates -->
             <div class="step4-contact-card">
                 <div class="contact-card-header">
                     <span class="contact-icon">✉️</span>
                     <div>
-                        <h3>Haben Sie eine Frage oder Feedback?</h3>
-                        <p>Möchten Sie eine Frage stellen oder Feedback zu diesem Leitfaden geben? Schreiben Sie Stefan unten.</p>
+                        <h3>Haben Sie eine Frage oder möchten Sie gelegentliche Updates?</h3>
+                        <p>Es gibt keine dummen Fragen. Fragen Sie mich alles oder erhalten Sie gelegentliche Erinnerungen, Ideen, Tipps und wichtige Updates.</p>
                     </div>
                 </div>
 
-                <form id="contact-form" action="https://formspree.io/f/xeaeprgg" method="POST" class="step4-contact-form">
-                    <textarea name="message" rows="3" placeholder="Hallo Stefan, ich hätte eine Frage zu..." required></textarea>
-                    <div class="form-group-bottom">
-                        <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required class="email-input">
-                        <button type="submit" class="btn btn-primary send-btn">Nachricht senden</button>
+                <form id="contact-form" class="step4-contact-form" action="https://formspree.io/f/xeaeprgg" method="POST">
+                    <div class="form-group-text">
+                        <textarea name="message" placeholder="Schreiben Sie Ihre Frage hier... (optional)" rows="3"></textarea>
                     </div>
-                    <span class="form-disclaimer">Stefan bemüht sich, alle Nachrichten innerhalb weniger Tage zu beantworten. Ihre Daten werden niemals weitergegeben.</span>
-                    <div id="form-status" style="margin-top: 10px; font-weight: 600; display: none;"></div>
+                    <div class="form-group-bottom">
+                        <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" class="email-input" required>
+                        <button type="submit" class="btn btn-primary send-btn">Senden</button>
+                    </div>
                 </form>
+                <p id="form-status" style="display: none; margin-top: 15px; font-weight: bold; font-size: 0.9rem; text-align: center;"></p>
+                <span class="form-disclaimer">Kein Spam. Jederzeit abbestellbar.</span>
             </div>
 
             <!-- Section FAQ Box Inférieure -->
             <div class="step4-faq-box">
                 <div class="faq-box-content">
-                    <span class="faq-icon">❓</span>
+                    <span class="faq-icon">📖</span>
                     <div>
-                        <h3>Haben Sie weitere Fragen?</h3>
-                        <p>Lesen Sie die Antworten auf die häufigsten Fragen in unseren FAQ.</p>
+                        <h3>An dieser Stelle haben Sie vielleicht noch Fragen.</h3>
+                        <p>Ich habe die häufigsten Fragen in den FAQ gesammelt.</p>
                     </div>
                 </div>
                 <a href="faq.html" class="faq-button-link">Zu den FAQ →</a>
@@ -155,10 +147,10 @@
                 <div class="footer-col-links">
                     <h4>Rechtliches</h4>
                     <ul>
-                        <li><a href="../privacy.html">Datenschutzerklärung (DSGVO)</a></li>
-                        <li><a href="../terms.html">Nutzungsbedingungen</a></li>
-                        <li><a href="../impressum.html">Impressum / Rechtliche Hinweise</a></li>
-                        <li><a href="../disclaimer.html">Finanz-Haftungsausschluss</a></li>
+                        <li><a href="privacy.html">Datenschutzerklärung (DSGVO)</a></li>
+                        <li><a href="terms.html">Nutzungsbedingungen</a></li>
+                        <li><a href="impressum.html">Impressum / Rechtliche Hinweise</a></li>
+                        <li><a href="disclaimer.html">Finanz-Haftungsausschluss</a></li>
                     </ul>
                 </div>
 
