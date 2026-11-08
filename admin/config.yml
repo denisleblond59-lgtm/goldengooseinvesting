@@ -53,3 +53,28 @@ collections:
               - { label: "Question", name: "question", widget: "string" }
               - { label: "Answer", name: "answer", widget: "markdown" }
               - { label: "Category", name: "category", widget: "string", required: false }
+
+  - name: "about"
+    label: "About Stefan"
+    files:
+      - file: "data/about.en.json"
+        label: "About Stefan (English)"
+        name: "about_en"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Bio", name: "bio", widget: "markdown" }
+          - { label: "Image", name: "image", widget: "image" }
+      - file: "data/about.cs.json"
+        label: "About Stefan (Czech)"
+        name: "about_cs"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Bio", name: "bio", widget: "markdown" }
+          - { label: "Image", name: "image", widget: "image" }
+      - file: "data/about.de.json"
+        label: "About Stefan (German)"
+        name: "about_de"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Bio", name: "bio", widget: "markdown" }
+          - { label: "Image", name: "image", widget: "image" }
