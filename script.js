@@ -65,10 +65,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnYearsPlus = document.getElementById('btn-years-plus');
 
     if (sliderAmount && sliderYears && svgChart) {
+        sliderYears.min = '10';
+        if (parseInt(sliderYears.value) < 10) {
+            sliderYears.value = '10';
+        }
         
         function updateCalculator() {
             const monthly = parseInt(sliderAmount.value) || 100;
-            const years = parseInt(sliderYears.value) || 20;
+            const years = Math.max(10, parseInt(sliderYears.value) || 10);
+            if (parseInt(sliderYears.value) < 10) {
+                sliderYears.value = '10';
+            }
             const rate = 0.09; // 9% rendement annuel moyen
 
             if (displayAmount) displayAmount.textContent = `€ ${monthly}`;
@@ -184,8 +191,14 @@ document.addEventListener('DOMContentLoaded', () => {
             svgChart.appendChild(axisX);
 
             // 4. Libellés Axe X (Années)
-            const yearStep = Math.max(1, Math.floor(totalYears / 4));
-            for (let y = 0; y <= totalYears; y += yearStep) {
+            const ticks = [0];
+            const step = Math.max(2, Math.floor(totalYears / 4));
+            for (let y = step; y < totalYears - (step * 0.5); y += step) {
+                ticks.push(y);
+            }
+            ticks.push(totalYears);
+
+            ticks.forEach(y => {
                 const x = paddingLeft + (y / totalYears) * plotWidth;
                 const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
                 text.setAttribute('x', x.toFixed(1));
@@ -196,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 text.setAttribute('text-anchor', y === 0 ? 'start' : (y === totalYears ? 'end' : 'middle'));
                 text.textContent = y === 0 ? '0' : `${y}y`;
                 svgChart.appendChild(text);
-            }
+            });
 
             // 5. Libellés Axe Y (Montants à DROITE)
             const yTicks = 3;
@@ -227,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Ecouteurs sur les boutons + / -
         if (btnAmountMinus) btnAmountMinus.addEventListener('click', () => { sliderAmount.value = Math.max(10, parseInt(sliderAmount.value) - 10); updateCalculator(); });
         if (btnAmountPlus) btnAmountPlus.addEventListener('click', () => { sliderAmount.value = Math.min(1000, parseInt(sliderAmount.value) + 10); updateCalculator(); });
-        if (btnYearsMinus) btnYearsMinus.addEventListener('click', () => { sliderYears.value = Math.max(1, parseInt(sliderYears.value) - 1); updateCalculator(); });
+        if (btnYearsMinus) btnYearsMinus.addEventListener('click', () => { sliderYears.value = Math.max(10, parseInt(sliderYears.value) - 1); updateCalculator(); });
         if (btnYearsPlus) btnYearsPlus.addEventListener('click', () => { sliderYears.value = Math.min(100, parseInt(sliderYears.value) + 1); updateCalculator(); });
 
         updateCalculator();
