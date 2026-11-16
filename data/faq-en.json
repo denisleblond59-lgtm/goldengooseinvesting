@@ -14,6 +14,10 @@
       "question": "Is Revolut safe for long-term investing?",
       "answer": "Revolut Securities Europe UAB provides regulated investment services under EU frameworks.",
       "category": "Platform"
+    },
+    {
+      "question": "Why do we assume 9% annual growth in average? ",
+      "answer": "Over the long term, the US stock market has historically returned around 10% annually, including reinvested dividends."
     }
   ]
 }
