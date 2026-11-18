@@ -41,26 +41,28 @@
         <div class="container" style="max-width: 800px;">
             <h1 style="font-size: 2.2rem; color: var(--color-navy); font-weight: 800; margin-bottom: 24px;">Frequently Asked Questions</h1>
 
-            <div class="container" style="max-width: 800px; margin-top: 40px; margin-bottom: 60px;">
+      <!-- Single clean header -->
+<div class="container" style="max-width: 800px; margin-top: 40px; margin-bottom: 60px;">
     <h1 style="font-size: 2.2rem; color: var(--color-navy); font-weight: 800; margin-bottom: 24px;">Frequently Asked Questions</h1>
-
+    
     <div id="faq-list-container">
-        <!-- FAQs will be loaded here dynamically from CMS data -->
+        <!-- FAQs will load here -->
     </div>
 </div>
 
 <script>
-    fetch('./data/faq-en.json')
+    // Fetching with absolute path from root to prevent folder-depth errors
+    fetch('/data/faq-en.json')
         .then(response => response.json())
         .then(faqs => {
             const container = document.getElementById('faq-list-container');
             container.innerHTML = '';
-
-            faqs.forEach((faq, index) => {
+            
+            faqs.forEach((faq) => {
                 const item = document.createElement('div');
                 item.className = 'faq-item';
                 item.style.cssText = 'background: #ffffff; padding: 24px; border-radius: 12px; border: 1px solid var(--color-border, #e2e8f0); margin-bottom: 16px;';
-
+                
                 item.innerHTML = `
                     <h3 class="faq-question" style="color: var(--color-navy); font-weight: 700; margin-bottom: 8px; font-size: 1.1rem;">${faq.question}</h3>
                     <p class="faq-answer" style="color: var(--color-text-muted); line-height: 1.6; margin: 0;">${faq.answer}</p>
@@ -71,7 +73,6 @@
         .catch(error => console.error('Error loading FAQs:', error));
 </script>
 
-        </div>
     </main>
 
     <!-- Footer Global -->
