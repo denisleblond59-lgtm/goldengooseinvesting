@@ -41,22 +41,15 @@
         <div class="container" style="max-width: 800px;">
             <h1 style="font-size: 2.2rem; color: var(--color-navy); font-weight: 800; margin-bottom: 24px;">Frequently Asked Questions</h1>
 
-      <!-- Single clean header -->
-<div class="container" style="max-width: 800px; margin-top: 40px; margin-bottom: 60px;">
-    <h1 style="font-size: 2.2rem; color: var(--color-navy); font-weight: 800; margin-bottom: 24px;">Frequently Asked Questions</h1>
-    
-    <div id="faq-list-container">
-        <!-- FAQs will load here -->
-    </div>
-</div>
-
-<script>
-    // Fetching with absolute path from root to prevent folder-depth errors
+   <script>
     fetch('/data/faq-en.json')
         .then(response => response.json())
-        .then(faqs => {
+        .then(data => {
             const container = document.getElementById('faq-list-container');
             container.innerHTML = '';
+            
+            // Automatically find the list whether it's direct or wrapped in an object
+            const faqs = Array.isArray(data) ? data : (data.faq_list || Object.values(data)[0] || []);
             
             faqs.forEach((faq) => {
                 const item = document.createElement('div');
@@ -72,6 +65,7 @@
         })
         .catch(error => console.error('Error loading FAQs:', error));
 </script>
+
 
     </main>
 
