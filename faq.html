@@ -41,30 +41,38 @@
         <div class="container" style="max-width: 800px;">
             <h1 style="font-size: 2.2rem; color: var(--color-navy); font-weight: 800; margin-bottom: 24px;">Frequently Asked Questions</h1>
 
-   <script>
-    fetch('/data/faq-en.json')
-        .then(response => response.json())
-        .then(data => {
-            const container = document.getElementById('faq-list-container');
-            container.innerHTML = '';
-            
-            // Automatically find the list whether it's direct or wrapped in an object
-            const faqs = Array.isArray(data) ? data : (data.faq_list || Object.values(data)[0] || []);
-            
-            faqs.forEach((faq) => {
-                const item = document.createElement('div');
-                item.className = 'faq-item';
-                item.style.cssText = 'background: #ffffff; padding: 24px; border-radius: 12px; border: 1px solid var(--color-border, #e2e8f0); margin-bottom: 16px;';
-                
-                item.innerHTML = `
-                    <h3 class="faq-question" style="color: var(--color-navy); font-weight: 700; margin-bottom: 8px; font-size: 1.1rem;">${faq.question}</h3>
-                    <p class="faq-answer" style="color: var(--color-text-muted); line-height: 1.6; margin: 0;">${faq.answer}</p>
-                `;
-                container.appendChild(item);
-            });
-        })
-        .catch(error => console.error('Error loading FAQs:', error));
+<script>
+  // Automatically detects language from the <html> tag (defaults to 'en')
+  const lang = document.documentElement.lang || 'en';
+
+  fetch(`/data/faq-${lang}.json`)
+    .then(response => {
+      if (!response.ok) throw new Error(`Could not load FAQs for language: ${lang}`);
+      return response.json();
+    })
+    .then(data => {
+      const container = document.getElementById('faq-list-container');
+      if (!container) return;
+      container.innerHTML = '';
+
+      // Handles flat arrays, { faq_list: [...] }, or wrapped objects regardless of size (3, 5, or 20+ items)
+      const faqs = Array.isArray(data) ? data : (data.faq_list || Object.values(data)[0] || []);
+
+      faqs.forEach(faq => {
+        const item = document.createElement('div');
+        item.className = 'faq-item';
+        item.style.cssText = 'background: #ffffff; padding: 24px; border-radius: 12px; border: 1px solid var(--color-border, #e5e7eb); margin-bottom: 16px;';
+        
+        item.innerHTML = `
+          <h3 class="faq-question" style="color: var(--color-navy); font-weight: 700; margin-bottom: 8px;">${faq.question}</h3>
+          <p class="faq-answer" style="color: var(--color-text-muted); line-height: 1.6; margin: 0;">${faq.answer}</p>
+        `;
+        container.appendChild(item);
+      });
+    })
+    .catch(error => console.error('Error loading FAQs:', error));
 </script>
+
 
 
     </main>
