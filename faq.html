@@ -141,7 +141,9 @@
                 if (idx >= urlList.length) {
                     return Promise.reject(new Error('All FAQ JSON fetch attempts failed'));
                 }
-                return fetch(urlList[idx])
+                var url = urlList[idx];
+                var fetchUrl = url + (url.indexOf('?') === -1 ? '?v=' + Date.now() : '&v=' + Date.now());
+                return fetch(fetchUrl, { cache: 'no-cache' })
                     .then(function (res) {
                         if (!res.ok) throw new Error('HTTP ' + res.status);
                         return res.json();
