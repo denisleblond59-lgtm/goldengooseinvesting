@@ -48,7 +48,7 @@
             <!-- Hero Title -->
             <div class="step-header text-center" style="margin-bottom: 40px;">
                 <h1 id="about-title" style="font-size: 2.4rem; color: var(--color-navy); font-weight: 800; margin-bottom: 12px;">Über Stefan & Golden Goose</h1>
-                <p style="font-size: 1.1rem; color: var(--color-text-muted); max-width: 680px; margin: 0 auto;">
+                <p id="about-subtitle" style="font-size: 1.1rem; color: var(--color-text-muted); max-width: 680px; margin: 0 auto;">
                     Warum ich diesen 4-Schritte-Leitfaden ins Leben gerufen habe, um finanzielle Freiheit für jeden zugänglich, einfach und automatisiert zu machen.
                 </p>
             </div>
@@ -58,8 +58,8 @@
                 <div class="about-profile-header">
                     <img id="about-image" src="../images/stefan-photo.jpeg" alt="Stefan Reinders" class="stefan-avatar">
                     <div>
-                        <h2>Hallo, ich bin Stefan Reinders</h2>
-                        <span class="about-subtitle-tag">Gründer von Golden Goose & Verfechter finanzieller Bildung</span>
+                        <h2 id="about-name">Hallo, ich bin Stefan Reinders</h2>
+                        <span id="about-role" class="about-subtitle-tag">Gründer von Golden Goose & Verfechter finanzieller Bildung</span>
                     </div>
                 </div>
 
@@ -155,21 +155,63 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            fetch('../data/about.de.json')
-                .then(function (res) {
-                    if (!res.ok) throw new Error('Failed to load about data');
-                    return res.json();
-                })
+            var langAttr = document.documentElement.getAttribute('lang') || 'de';
+            var lang = langAttr.toLowerCase().split('-')[0].trim() || 'de';
+
+            function getCandidateUrls(l) {
+                return [
+                    '/data/about.' + l + '.json',
+                    '../data/about.' + l + '.json',
+                    'data/about.' + l + '.json',
+                    '/data/about-' + l + '.json',
+                    '../data/about-' + l + '.json',
+                    'data/about-' + l + '.json'
+                ];
+            }
+
+            var urls = getCandidateUrls(lang);
+            if (lang !== 'en') {
+                urls = urls.concat(getCandidateUrls('en'));
+            }
+
+            function fetchFirst(urlList, idx) {
+                if (idx >= urlList.length) {
+                    return Promise.reject(new Error('All About JSON fetch attempts failed'));
+                }
+                return fetch(urlList[idx])
+                    .then(function (res) {
+                        if (!res.ok) throw new Error('HTTP ' + res.status);
+                        return res.json();
+                    })
+                    .catch(function () {
+                        return fetchFirst(urlList, idx + 1);
+                    });
+            }
+
+            fetchFirst(urls, 0)
                 .then(function (data) {
                     if (data.title) {
                         var titleEl = document.getElementById('about-title');
                         if (titleEl) titleEl.textContent = data.title;
                     }
+                    if (data.subtitle) {
+                        var subtitleEl = document.getElementById('about-subtitle');
+                        if (subtitleEl) subtitleEl.textContent = data.subtitle;
+                    }
+                    if (data.name) {
+                        var nameEl = document.getElementById('about-name');
+                        if (nameEl) nameEl.textContent = data.name;
+                    }
+                    if (data.tagline || data.role) {
+                        var roleEl = document.getElementById('about-role') || document.getElementById('about-tagline');
+                        if (roleEl) roleEl.textContent = data.tagline || data.role;
+                    }
                     if (data.image) {
                         var imgEl = document.getElementById('about-image');
                         if (imgEl) {
                             var src = data.image;
-                            if (!src.startsWith('/') && !src.startsWith('http') && !src.startsWith('../')) {
+                            var isInSubdir = window.location.pathname.indexOf('/cs/') !== -1 || window.location.pathname.indexOf('/de/') !== -1;
+                            if (isInSubdir && !src.startsWith('/') && !src.startsWith('http') && !src.startsWith('../')) {
                                 src = '../' + src;
                             }
                             imgEl.src = src;

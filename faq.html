@@ -39,68 +39,27 @@
 
     <main class="step-container">
         <div class="container" style="max-width: 800px;">
-            <h1 style="font-size: 2.2rem; color: var(--color-navy); font-weight: 800; margin-bottom: 24px;">Frequently Asked Questions</h1>
+            <h1 id="faq-title" style="font-size: 2.2rem; color: var(--color-navy); font-weight: 800; margin-bottom: 24px;">Frequently Asked Questions</h1>
 
-<script>
-  // 1. Detect language from the <html> tag (e.g., lang="en", lang="cs", lang="fr")
-  const lang = document.documentElement.getAttribute('lang') || 'en';
-  const jsonPath = `/data/faq-${lang}.json`;
+            <div id="faq-list">
+                <div class="faq-item" id="why-vuaa" data-faq-id="1" style="background: #ffffff; padding: 24px; border-radius: 12px; border: 1px solid var(--color-border); margin-bottom: 16px;">
+                    <h3 class="faq-question" style="color: var(--color-navy); margin-bottom: 8px;">Why VUAA (Vanguard S&amp;P 500 UCITS ETF)?</h3>
+                    <div class="faq-answer" style="color: var(--color-text-muted); line-height: 1.6;">
+                        VUAA tracks the S&amp;P 500 index, providing instant ownership in 500 of America's leading companies (including Apple, Microsoft, Amazon, Alphabet, and Berkshire Hathaway) in one simple fund. It features an ultra-low expense ratio of just 0.07% per year and automatically reinvests dividends (accumulating), which maximizes compounding without triggering dividend income taxes or extra transaction fees.
+                    </div>
+                </div>
 
-  const container = document.getElementById('faq-list-container');
+                <div class="faq-item" data-faq-id="2" style="background: #ffffff; padding: 24px; border-radius: 12px; border: 1px solid var(--color-border); margin-bottom: 16px;">
+                    <h3 class="faq-question" style="color: var(--color-navy); margin-bottom: 8px;">Why is automated ETF investing better than average?</h3>
+                    <div class="faq-answer" style="color: var(--color-text-muted); line-height: 1.6;">Most investors underperform the market by trying to time it or picking individual stocks. By automating a broad S&amp;P 500 ETF, you secure market returns with low costs.</div>
+                </div>
 
-  // Helper function to render items safely
-  function renderFaqs(faqs) {
-    if (!container) return;
-    container.innerHTML = '';
-    
-    if (!Array.isArray(faqs) || faqs.length === 0) {
-      container.innerHTML = '<p style="color: var(--color-text-muted);">No FAQs available.</p>';
-      return;
-    }
-
-    faqs.forEach(faq => {
-      const item = document.createElement('div');
-      item.className = 'faq-item';
-      item.style.cssText = 'background: #ffffff; padding: 24px; border-radius: 12px; border: 1px solid #e5e7eb; margin-bottom: 16px;';
-      
-      item.innerHTML = `
-        <h3 class="faq-question" style="color: var(--color-navy, #1e3a8a); font-weight: 700; margin-bottom: 8px;">${faq.question || ''}</h3>
-        <p class="faq-answer" style="color: var(--color-text-muted, #4b5563); line-height: 1.6; margin: 0;">${faq.answer || ''}</p>
-      `;
-      container.appendChild(item);
-    });
-  }
-
-  // 2. Fetch the JSON dynamically, with fallback to English or static HTML if needed
-  fetch(jsonPath)
-    .then(response => {
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      return response.json();
-    })
-    .then(data => {
-      // Handle both direct array [] or Decap CMS object wrapping { faq_list: [...] }
-      const faqs = Array.isArray(data) ? data : (data.faq_list || data.faqs || Object.values(data)[0] || []);
-      renderFaqs(faqs);
-    })
-    .catch(error => {
-      console.warn('Could not load dynamic FAQ JSON, trying English fallback...', error);
-      // Fallback to English if translation file fails
-      if (lang !== 'en') {
-        fetch('/data/faq-en.json')
-          .then(res => res.json())
-          .then(data => {
-            const faqs = Array.isArray(data) ? data : (data.faq_list || data.faqs || Object.values(data)[0] || []);
-            renderFaqs(faqs);
-          })
-          .catch(err => console.error('Fallback failed:', err));
-      }
-    });
-</script>
-
-
-
-
-
+                <div class="faq-item" data-faq-id="3" style="background: #ffffff; padding: 24px; border-radius: 12px; border: 1px solid var(--color-border); margin-bottom: 16px;">
+                    <h3 class="faq-question" style="color: var(--color-navy); margin-bottom: 8px;">Is Revolut safe for long-term investing?</h3>
+                    <div class="faq-answer" style="color: var(--color-text-muted); line-height: 1.6;">Revolut Securities Europe UAB provides regulated investment services under EU frameworks.</div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- Footer Global -->
@@ -156,5 +115,127 @@
             </div>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var langAttr = document.documentElement.getAttribute('lang') || 'en';
+            var lang = langAttr.toLowerCase().split('-')[0].trim() || 'en';
+
+            function getCandidateUrls(l) {
+                return [
+                    '/data/faq-' + l + '.json',
+                    'data/faq-' + l + '.json',
+                    '../data/faq-' + l + '.json',
+                    '/data/faq.' + l + '.json',
+                    'data/faq.' + l + '.json',
+                    '../data/faq.' + l + '.json'
+                ];
+            }
+
+            var urls = getCandidateUrls(lang);
+            if (lang !== 'en') {
+                urls = urls.concat(getCandidateUrls('en'));
+            }
+
+            function fetchFirst(urlList, idx) {
+                if (idx >= urlList.length) {
+                    return Promise.reject(new Error('All FAQ JSON fetch attempts failed'));
+                }
+                return fetch(urlList[idx])
+                    .then(function (res) {
+                        if (!res.ok) throw new Error('HTTP ' + res.status);
+                        return res.json();
+                    })
+                    .catch(function () {
+                        return fetchFirst(urlList, idx + 1);
+                    });
+            }
+
+            function extractFaqs(data) {
+                if (!data) return [];
+                if (Array.isArray(data)) return data;
+                if (typeof data === 'object') {
+                    if (Array.isArray(data.faqs)) return data.faqs;
+                    if (Array.isArray(data.faq_list)) return data.faq_list;
+                    if (Array.isArray(data.items)) return data.items;
+                    if (Array.isArray(data.list)) return data.list;
+                    for (var key in data) {
+                        if (Array.isArray(data[key])) return data[key];
+                    }
+                }
+                return [];
+            }
+
+            function renderMarkdown(md) {
+                if (!md) return '';
+                if (typeof marked !== 'undefined' && marked.parse) {
+                    return marked.parse(md);
+                }
+                return md
+                    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+                    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+                    .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
+                    .replace(/^\* (.*$)/gim, '<li>$1</li>')
+                    .replace(/^\- (.*$)/gim, '<li>$1</li>')
+                    .split('\n\n')
+                    .map(function (p) { return p.trim(); })
+                    .filter(function (p) { return p.length > 0; })
+                    .map(function (p) {
+                        if (p.startsWith('<h') || p.startsWith('<li>') || p.startsWith('<ul')) return p;
+                        return '<p>' + p + '</p>';
+                    })
+                    .join('');
+            }
+
+            function escapeHtml(str) {
+                if (!str) return '';
+                return String(str)
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#039;');
+            }
+
+            fetchFirst(urls, 0)
+                .then(function (data) {
+                    var list = extractFaqs(data);
+                    var container = document.getElementById('faq-list');
+                    if (!container || !list || list.length === 0) return;
+
+                    var html = '';
+                    list.forEach(function (item, index) {
+                        var q = item.question || item.q || item.title || '';
+                        var a = item.answer || item.a || item.content || item.body || '';
+                        if (!q && !a) return;
+
+                        var isVuaa = (item.id === 'why-vuaa') || (q.toLowerCase().indexOf('vuaa') !== -1);
+                        var idAttr = item.id ? ' id="' + escapeHtml(item.id) + '"' : (isVuaa ? ' id="why-vuaa"' : '');
+                        var dataIdAttr = ' data-faq-id="' + (index + 1) + '"';
+
+                        html += '<div class="faq-item"' + idAttr + dataIdAttr + ' style="background: #ffffff; padding: 24px; border-radius: 12px; border: 1px solid var(--color-border); margin-bottom: 16px;">';
+                        html += '<h3 class="faq-question" style="color: var(--color-navy); margin-bottom: 8px;">' + escapeHtml(q) + '</h3>';
+                        html += '<div class="faq-answer" style="color: var(--color-text-muted); line-height: 1.6;">' + renderMarkdown(a) + '</div>';
+                        html += '</div>';
+                    });
+
+                    if (html) {
+                        container.innerHTML = html;
+                        if (window.location.hash) {
+                            var target = document.querySelector(window.location.hash);
+                            if (target) {
+                                setTimeout(function () {
+                                    target.scrollIntoView({ behavior: 'smooth' });
+                                }, 50);
+                            }
+                        }
+                    }
+                })
+                .catch(function (err) {
+                    console.warn('FAQ dynamic fetch fallback:', err);
+                });
+        });
+    </script>
 </body>
 </html>

@@ -2252,3 +2252,21 @@ footer div:has(> img) {
     margin-bottom: 8px;
 }
 
+
+/* FAQ Dynamic Content */
+.faq-answer p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+.faq-answer ul {
+    margin-bottom: 12px;
+    padding-left: 20px;
+    line-height: 1.6;
+}
+.faq-answer li {
+    margin-bottom: 6px;
+}
+

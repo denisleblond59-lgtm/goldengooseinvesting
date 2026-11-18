@@ -54,6 +54,21 @@ collections:
               - { label: "Answer", name: "answer", widget: "markdown" }
               - { label: "Category", name: "category", widget: "string", required: false }
 
+  - name: "faq_fr"
+    label: "FAQs (French)"
+    files:
+      - file: "data/faq-fr.json" # Path to FR FAQ data file
+        label: "French FAQ Items"
+        name: "faq_fr_file"
+        fields:
+          - label: "FAQ List"
+            name: "faqs"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "markdown" }
+              - { label: "Category", name: "category", widget: "string", required: false }
+
   - name: "about"
     label: "About Stefan"
     files:
@@ -62,6 +77,9 @@ collections:
         name: "about_en"
         fields:
           - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+          - { label: "Name / Greeting", name: "name", widget: "string", required: false }
+          - { label: "Tagline", name: "tagline", widget: "string", required: false }
           - { label: "Bio", name: "bio", widget: "markdown" }
           - { label: "Image", name: "image", widget: "image" }
       - file: "data/about.cs.json"
@@ -69,6 +87,9 @@ collections:
         name: "about_cs"
         fields:
           - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+          - { label: "Name / Greeting", name: "name", widget: "string", required: false }
+          - { label: "Tagline", name: "tagline", widget: "string", required: false }
           - { label: "Bio", name: "bio", widget: "markdown" }
           - { label: "Image", name: "image", widget: "image" }
       - file: "data/about.de.json"
@@ -76,5 +97,18 @@ collections:
         name: "about_de"
         fields:
           - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+          - { label: "Name / Greeting", name: "name", widget: "string", required: false }
+          - { label: "Tagline", name: "tagline", widget: "string", required: false }
+          - { label: "Bio", name: "bio", widget: "markdown" }
+          - { label: "Image", name: "image", widget: "image" }
+      - file: "data/about.fr.json"
+        label: "About Stefan (French)"
+        name: "about_fr"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+          - { label: "Name / Greeting", name: "name", widget: "string", required: false }
+          - { label: "Tagline", name: "tagline", widget: "string", required: false }
           - { label: "Bio", name: "bio", widget: "markdown" }
           - { label: "Image", name: "image", widget: "image" }
