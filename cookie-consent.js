@@ -57,32 +57,10 @@ var GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
         gtag('config', GA_ID);
     }
 
-    // 5. If user already made a selection, keep banner hidden
+    // 5. If user already made a selection, keep modal hidden
     if (savedConsent === 'granted' || savedConsent === 'denied') {
         return;
     }
-
-    // 6. Multilingual copy (EN, DE, CS)
-    var translations = {
-        en: {
-            text: 'We use cookies to analyze site traffic and improve your browsing experience. By clicking \u201cAccept\u201d, you consent to our use of cookies in accordance with our <a href="privacy.html" class="cookie-banner-link">Privacy Policy</a>.',
-            accept: 'Accept',
-            decline: 'Decline',
-            ariaLabel: 'Cookie consent'
-        },
-        de: {
-            text: 'Wir verwenden Cookies, um den Website-Verkehr zu analysieren und Ihr Nutzungserlebnis zu verbessern. Mit dem Klick auf \u201eAkzeptieren\u201c stimmen Sie der Verwendung von Cookies gem\u00e4\u00df unserer <a href="privacy.html" class="cookie-banner-link">Datenschutzerkl\u00e4rung</a> zu.',
-            accept: 'Akzeptieren',
-            decline: 'Ablehnen',
-            ariaLabel: 'Cookie-Einwilligung'
-        },
-        cs: {
-            text: 'Pou\u017e\u00edv\u00e1me cookies k anal\u00fdze n\u00e1v\u0161t\u011bvnosti a zlep\u0161en\u00ed u\u017eivatelsk\u00e9ho z\u00e1\u017eitku. Kliknut\u00edm na \u201eP\u0159ijmout\u201c souhlas\u00edte s pou\u017e\u00edv\u00e1n\u00edm cookies v souladu s na\u0161imi <a href="privacy.html" class="cookie-banner-link">Z\u00e1sadami ochrany osobn\u00edch \u00fadaj\u016f</a>.',
-            accept: 'P\u0159ijmout',
-            decline: 'Odm\u00edtnout',
-            ariaLabel: 'Souhlas s cookies'
-        }
-    };
 
     function getLang() {
         var htmlLang = (document.documentElement.lang || 'en').toLowerCase().trim();
@@ -91,38 +69,88 @@ var GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
         return 'en';
     }
 
-    function initBanner() {
-        if (document.getElementById('cookie-consent-banner')) return;
+    function getPrivacyUrl() {
+        var path = (window.location.pathname || '').toLowerCase();
+        var inSubdir = path.indexOf('/de/') !== -1 || path.indexOf('/cs/') !== -1;
+        if (inSubdir) {
+            return 'privacy.html';
+        }
+        var lang = getLang();
+        if (lang === 'de') return 'de/privacy.html';
+        if (lang === 'cs') return 'cs/privacy.html';
+        return 'privacy.html';
+    }
 
-        var t = translations[getLang()] || translations.en;
+    function isPrivacyPage() {
+        var path = ((window.location.pathname || '') + ' ' + (window.location.href || '')).toLowerCase();
+        return path.indexOf('privacy.html') !== -1;
+    }
 
-        var banner = document.createElement('div');
-        banner.id = 'cookie-consent-banner';
-        banner.className = 'cookie-consent-banner';
-        banner.setAttribute('role', 'region');
-        banner.setAttribute('aria-label', t.ariaLabel);
+    // 6. Multilingual copy (EN, DE, CS)
+    var translations = {
+        en: {
+            title: 'Cookie Preferences',
+            text: 'We use cookies and Google Analytics 4 (with IP anonymization) to analyze traffic and improve your browsing experience. Analytics cookies are set to denied by default and will only activate if you click \u201cAccept\u201d. For details, read our <a href="{privacyUrl}" target="_blank" class="cookie-modal-link">Privacy Policy</a>.',
+            accept: 'Accept',
+            decline: 'Decline',
+            ariaLabel: 'Cookie consent dialog'
+        },
+        de: {
+            title: 'Cookie-Einstellungen',
+            text: 'Wir verwenden Cookies und Google Analytics 4 (mit IP-Anonymisierung), um den Website-Verkehr zu analysieren und Ihr Nutzungserlebnis zu verbessern. Analyse-Cookies sind standardm\u00e4\u00dfig deaktiviert und werden erst aktiviert, wenn Sie auf \u201eAkzeptieren\u201c klicken. Weitere Informationen finden Sie in unserer <a href="{privacyUrl}" target="_blank" class="cookie-modal-link">Datenschutzerkl\u00e4rung</a>.',
+            accept: 'Akzeptieren',
+            decline: 'Ablehnen',
+            ariaLabel: 'Cookie-Einwilligungsdialog'
+        },
+        cs: {
+            title: 'Nastaven\u00ed soubor\u016f cookie',
+            text: 'Pou\u017e\u00edv\u00e1me cookies a Google Analytics 4 (s anonymizac\u00ed IP) k anal\u00fdze n\u00e1v\u0161t\u011bvnosti a zlep\u0161en\u00ed webu. Analytick\u00e9 cookies jsou ve v\u00fdchoz\u00edm stavu zam\u00edtnuty a aktivuj\u00ed se pouze po kliknut\u00ed na \u201eP\u0159ijmout\u201c. V\u00edce informac\u00ed v na\u0161ich <a href="{privacyUrl}" target="_blank" class="cookie-modal-link">Z\u00e1sad\u00e1ch ochrany osobn\u00edch \u00fadaj\u016f</a>.',
+            accept: 'P\u0159ijmout',
+            decline: 'Odm\u00edtnout',
+            ariaLabel: 'Dialog souhlasu s cookies'
+        }
+    };
 
-        banner.innerHTML =
-            '<div class="cookie-consent-container">' +
-                '<p class="cookie-consent-text">' + t.text + '</p>' +
-                '<div class="cookie-consent-actions">' +
+    function initModal() {
+        if (document.getElementById('cookie-consent-modal')) return;
+
+        var lang = getLang();
+        var t = translations[lang] || translations.en;
+        var privacyUrl = getPrivacyUrl();
+        var bodyText = t.text.replace('{privacyUrl}', privacyUrl);
+        var onPrivacyPage = isPrivacyPage();
+
+        var backdrop = document.createElement('div');
+        backdrop.id = 'cookie-consent-modal';
+        backdrop.className = 'cookie-modal-backdrop' + (onPrivacyPage ? ' cookie-page-mode' : '');
+        backdrop.setAttribute('role', 'dialog');
+        backdrop.setAttribute('aria-modal', onPrivacyPage ? 'false' : 'true');
+        backdrop.setAttribute('aria-labelledby', 'cookie-modal-title');
+
+        backdrop.innerHTML =
+            '<div class="cookie-modal-card">' +
+                '<div class="cookie-modal-header">' +
+                    '<span class="cookie-modal-icon">\ud83c\udf6a</span>' +
+                    '<h2 id="cookie-modal-title" class="cookie-modal-title">' + t.title + '</h2>' +
+                '</div>' +
+                '<p class="cookie-modal-body">' + bodyText + '</p>' +
+                '<div class="cookie-modal-actions">' +
                     '<button type="button" class="cookie-btn cookie-btn-decline" id="cookie-btn-decline">' + t.decline + '</button>' +
                     '<button type="button" class="cookie-btn cookie-btn-accept" id="cookie-btn-accept">' + t.accept + '</button>' +
                 '</div>' +
             '</div>';
 
-        document.body.appendChild(banner);
+        document.body.appendChild(backdrop);
 
         var acceptBtn = document.getElementById('cookie-btn-accept');
         var declineBtn = document.getElementById('cookie-btn-decline');
 
-        function removeBanner() {
-            banner.style.opacity = '0';
-            banner.style.transform = 'translateY(100%)';
-            banner.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+        function removeModal() {
+            backdrop.style.opacity = '0';
+            backdrop.style.transition = 'opacity 0.25s ease';
             setTimeout(function () {
-                if (banner && banner.parentNode) {
-                    banner.parentNode.removeChild(banner);
+                if (backdrop && backdrop.parentNode) {
+                    backdrop.parentNode.removeChild(backdrop);
                 }
             }, 250);
         }
@@ -138,7 +166,7 @@ var GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
                     'ad_user_data': 'granted',
                     'ad_personalization': 'granted'
                 });
-                removeBanner();
+                removeModal();
             });
         }
 
@@ -147,14 +175,14 @@ var GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
                 try {
                     localStorage.setItem(STORAGE_KEY, 'denied');
                 } catch (e) {}
-                removeBanner();
+                removeModal();
             });
         }
     }
 
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initBanner);
+        document.addEventListener('DOMContentLoaded', initModal);
     } else {
-        initBanner();
+        initModal();
     }
 })();
