@@ -3,11 +3,11 @@
  *
  * ============================================================================
  * PLACEHOLDER CONFIGURATION:
- * Replace 'G-XXXXXXXXXX' below with your actual GA4 Measurement ID.
+ * GA4 Measurement ID: G-M22GYB5GRB
  * No other code changes are needed across the website.
  * ============================================================================
  */
-var GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+var GA_MEASUREMENT_ID = 'G-M22GYB5GRB';
 
 (function () {
     'use strict';
